@@ -11,7 +11,10 @@ public class PlayerMovement : MonoBehaviour {
     float PrevMoveSpeed;
     bool CanJump;
     bool Left = false;
+    [SerializeField]
     bool IsSquare;
+    bool IsRect;
+    bool Fallen;
     SpriteRenderer PlayerSprite;
     BoxCollider2D RectCollider;
     EdgeCollider2D TriCollider;
@@ -31,6 +34,9 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField]
     float RectJumpHeight = 7;
+
+    [SerializeField]
+    float FallJumpHeight = 3;
         
 	// Use this for initialization
 	void Start () {
@@ -51,12 +57,26 @@ public class PlayerMovement : MonoBehaviour {
         
         if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && CanJump)
         {
-            Move(Player.transform.right);
+            if (Fallen)
+            {
+                Move(-Player.transform.up);
+            }
+            else
+            {
+                Move(Player.transform.right);
+            }
             Left = false;
         }
         else if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && CanJump)
         {
-            Move(-Player.transform.right);
+            if (Fallen)
+            {
+                Move(Player.transform.up);
+            }
+            else
+            {
+                Move(-Player.transform.right);
+            }
             Left = true;
         }
 
@@ -65,7 +85,7 @@ public class PlayerMovement : MonoBehaviour {
             Jump();
         }
 
-        if (Input.GetKey(KeyCode.T))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             if (IsSquare)
             {
@@ -73,6 +93,13 @@ public class PlayerMovement : MonoBehaviour {
                 {
                     Teleport();
                 }
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (IsRect)
+            {
+                RectFall();
             }
         }
 	}
@@ -162,6 +189,7 @@ public class PlayerMovement : MonoBehaviour {
         JumpHeight = 4;
         MoveSpeed = 5;
         IsSquare = true;
+        IsRect = false;
     }
 
     void ToRectangle()
@@ -176,6 +204,9 @@ public class PlayerMovement : MonoBehaviour {
         MoveSpeed = 3;
         JumpHeight = RectJumpHeight;
         IsSquare = false;
+        IsRect = true;
+        Fallen = false;
+        Player.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     void ToTriangle()
@@ -185,6 +216,7 @@ public class PlayerMovement : MonoBehaviour {
         TriCollider.enabled = true;
         CirCollider.enabled = false;
         IsSquare = false;
+        IsRect = false;
     }
 
     void ToCircle()
@@ -194,6 +226,14 @@ public class PlayerMovement : MonoBehaviour {
         TriCollider.enabled = false;
         CirCollider.enabled = true;
         IsSquare = false;
+        IsRect = false;
+    }
+
+    void RectFall()
+    {
+        Player.transform.rotation = Quaternion.Euler(0, 0, 90);
+        JumpHeight = FallJumpHeight;
+        Fallen = true;
     }
 
     void OnCollisionEnter2D(Collision2D Col)
