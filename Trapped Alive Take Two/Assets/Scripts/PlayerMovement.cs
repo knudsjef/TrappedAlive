@@ -150,7 +150,7 @@ public class PlayerMovement : MonoBehaviour {
         StopMovement();
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D Hit = Physics2D.Raycast(ray.origin, Vector2.down);
-        if (Hit.transform.tag == "Teleportable")
+        if (Hit.transform.GetComponent<Teleportable>().TeleportPlatform)
         {
             Player.transform.position = Hit.point;
         }

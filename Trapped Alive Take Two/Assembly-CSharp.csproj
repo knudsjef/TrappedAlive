@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Teleportable.cs" />
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Users/Jeffery/Documents/Game Dev/Unity 5/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
