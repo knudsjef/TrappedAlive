@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     float JumpHeight;
     float PrevMoveSpeed;
     bool CanJump;
-    bool Left = false;
+    public bool Left = false;
     [SerializeField]
     bool IsSquare;
     bool IsRect;
