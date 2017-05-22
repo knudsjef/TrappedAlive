@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     float JumpHeight;
     float PrevMoveSpeed;
     bool CanJump;
-    bool Left = false;
+    public bool Left = false;
     [SerializeField]
     bool IsSquare;
     bool IsRect;
@@ -150,7 +150,7 @@ public class PlayerMovement : MonoBehaviour {
         StopMovement();
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D Hit = Physics2D.Raycast(ray.origin, Vector2.down);
-        if (Hit.transform.tag == "Teleportable")
+        if (Hit.transform.GetComponent<Teleportable>().TeleportPlatform)
         {
             Player.transform.position = Hit.point;
         }
@@ -183,8 +183,8 @@ public class PlayerMovement : MonoBehaviour {
         RectCollider.enabled = true;
         TriCollider.enabled = false;
         CirCollider.enabled = false;
-        RectCollider.offset = new Vector2(-0.2713981f, 0);
-        RectCollider.size = new Vector2(8.18669f, 7.71f);
+        RectCollider.offset = new Vector2(0.02245971f, 0.03265064f);
+        RectCollider.size = new Vector2(5.117493f, 5.163211f);
         JumpDistance = 5;
         JumpHeight = 4;
         MoveSpeed = 5;
