@@ -1,7 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{B35155CA-0280-031D-E1BC-C433CF2A0626}") = "Trapped Alive Take Two", "Assembly-CSharp.csproj", "{89746456-C0D7-94F0-682E-8006C44280A5}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trapped Alive Take Two", "Assembly-CSharp.csproj", "{89746456-C0D7-94F0-682E-8006C44280A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
