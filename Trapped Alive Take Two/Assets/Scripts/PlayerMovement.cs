@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour {
     CircleCollider2D CirCollider;
 
     [SerializeField]
+    char StartShape;
+
+    [SerializeField]
     Sprite Square;
 
     [SerializeField]
@@ -48,7 +51,7 @@ public class PlayerMovement : MonoBehaviour {
         TriCollider = Player.GetComponent<EdgeCollider2D>();
         CirCollider = Player.GetComponent<CircleCollider2D>();
 
-        ChangeShape('S');
+        ChangeShape(StartShape);
 	}
 	
 	// Update is called once per frame
@@ -82,7 +85,17 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Jump();
+            if (TriCollider.enabled == false)
+            {
+                Jump();
+            }
+            else
+            {
+                if (CanJump)
+                {
+                    TriangleWallJump(Left);
+                }
+            }
         }
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -177,6 +190,19 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    void TriangleWallJump(bool JumpLeft)
+    {
+        CanJump = false;
+        if (JumpLeft)
+        {
+            PlayerRigid.velocity = new Vector2(-3, 7);
+        }
+        else
+        {
+            PlayerRigid.velocity = new Vector2(3, 7);
+        }
+    }
+
     void ToSquare()
     {
         PlayerSprite.sprite = Square;
@@ -257,6 +283,14 @@ public class PlayerMovement : MonoBehaviour {
         else if (Col.gameObject.tag == "Circle Changer")
         {
             ChangeShape('C');
+        }
+        else if (Col.gameObject.tag == "Left Wall")
+        {
+            TriangleWallJump(false);
+        }
+        else if (Col.gameObject.tag == "Right Wall")
+        {
+            TriangleWallJump(true);
         }
     }
 
