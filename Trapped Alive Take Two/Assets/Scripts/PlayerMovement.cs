@@ -9,12 +9,14 @@ public class PlayerMovement : MonoBehaviour {
     float JumpDistance;
     float JumpHeight;
     float PrevMoveSpeed;
+    float GravityY;
     bool CanJump;
     public bool Left = false;
     [SerializeField]
     bool IsSquare;
     bool IsRect;
     bool Fallen;
+    bool OnRamp;
     SpriteRenderer PlayerSprite;
     BoxCollider2D RectCollider;
     EdgeCollider2D TriCollider;
@@ -57,6 +59,17 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
+
+        if (OnRamp)
+        {
+            GravityY -= 1;
+            Physics2D.gravity = new Vector2(0, GravityY);
+        }
+        else
+        {
+            GravityY = -20;
+            Physics2D.gravity = new Vector2(0, -9.81f);
+        }
         
         if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && CanJump)
         {
@@ -107,15 +120,16 @@ public class PlayerMovement : MonoBehaviour {
                     Teleport();
                 }
             }
-        }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            if (IsRect)
+            else if (IsRect)
             {
                 RectFall();
             }
+            else if(CirCollider.enabled == true)
+            {
+                CircleGainSpeed();
+            }
         }
-	}
+    }
 
     void Move(Vector3 Direction)
     {
@@ -170,6 +184,11 @@ public class PlayerMovement : MonoBehaviour {
         ContinueMovement();
     }
 
+    void CircleGainSpeed()
+    {
+
+    }
+
     void ChangeShape(char Shape)
     {
         if (Shape == 'S')
@@ -192,14 +211,17 @@ public class PlayerMovement : MonoBehaviour {
 
     void TriangleWallJump(bool JumpLeft)
     {
-        CanJump = false;
-        if (JumpLeft)
+        if (TriCollider.enabled == true)
         {
-            PlayerRigid.velocity = new Vector2(-3, 7);
-        }
-        else
-        {
-            PlayerRigid.velocity = new Vector2(3, 7);
+            CanJump = false;
+            if (JumpLeft)
+            {
+                PlayerRigid.velocity = new Vector2(-3, 7);
+            }
+            else
+            {
+                PlayerRigid.velocity = new Vector2(3, 7);
+            }
         }
     }
 
@@ -291,6 +313,16 @@ public class PlayerMovement : MonoBehaviour {
         else if (Col.gameObject.tag == "Right Wall")
         {
             TriangleWallJump(true);
+        }
+
+
+        if(Col.gameObject.tag == "Ramp")
+        {
+            OnRamp = true;
+        }
+        else
+        {
+            OnRamp = false;
         }
     }
 
