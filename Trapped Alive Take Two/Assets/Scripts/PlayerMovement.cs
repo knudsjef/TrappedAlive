@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
     GameObject Player;
     Rigidbody2D PlayerRigid;
@@ -42,9 +43,10 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField]
     float FallJumpHeight = 3;
-        
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start()
+    {
 
         Player = this.gameObject;
         PlayerRigid = Player.GetComponent<Rigidbody2D>();
@@ -54,23 +56,12 @@ public class PlayerMovement : MonoBehaviour {
         CirCollider = Player.GetComponent<CircleCollider2D>();
 
         ChangeShape(StartShape);
-	}
-	
-	// Update is called once per frame
-	void Update () 
+    }
+
+    // Update is called once per frame
+    void Update()
     {
 
-        if (OnRamp)
-        {
-            GravityY -= 1;
-            Physics2D.gravity = new Vector2(0, GravityY);
-        }
-        else
-        {
-            GravityY = -20;
-            Physics2D.gravity = new Vector2(0, -9.81f);
-        }
-        
         if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && CanJump)
         {
             if (Fallen)
@@ -123,10 +114,6 @@ public class PlayerMovement : MonoBehaviour {
             else if (IsRect)
             {
                 RectFall();
-            }
-            else if(CirCollider.enabled == true)
-            {
-                CircleGainSpeed();
             }
         }
     }
@@ -184,11 +171,6 @@ public class PlayerMovement : MonoBehaviour {
         ContinueMovement();
     }
 
-    void CircleGainSpeed()
-    {
-
-    }
-
     void ChangeShape(char Shape)
     {
         if (Shape == 'S')
@@ -214,13 +196,27 @@ public class PlayerMovement : MonoBehaviour {
         if (TriCollider.enabled == true)
         {
             CanJump = false;
-            if (JumpLeft)
+            if (PlayerRigid.velocity.y < 0)
             {
-                PlayerRigid.velocity = new Vector2(-3, 7);
+                if (JumpLeft)
+                {
+                    PlayerRigid.velocity = new Vector2(-3, -7);
+                }
+                else
+                {
+                    PlayerRigid.velocity = new Vector2(3, -7);
+                }
             }
             else
             {
-                PlayerRigid.velocity = new Vector2(3, 7);
+                if (JumpLeft)
+                {
+                    PlayerRigid.velocity = new Vector2(-3, 7);
+                }
+                else
+                {
+                    PlayerRigid.velocity = new Vector2(3, 7);
+                }
             }
         }
     }
@@ -315,15 +311,5 @@ public class PlayerMovement : MonoBehaviour {
             TriangleWallJump(true);
         }
 
-
-        if(Col.gameObject.tag == "Ramp")
-        {
-            OnRamp = true;
-        }
-        else
-        {
-            OnRamp = false;
-        }
     }
-
 }

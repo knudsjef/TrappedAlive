@@ -4,6 +4,7 @@ using System.Collections;
 public class Lever : MonoBehaviour {
 
     public bool On;
+
     char StartPos;
 
 	// Use this for initialization
