@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     bool OnRamp;
     SpriteRenderer PlayerSprite;
     BoxCollider2D RectCollider;
-    EdgeCollider2D TriCollider;
+    PolygonCollider2D TriCollider;
     CircleCollider2D CirCollider;
 
     [SerializeField]
@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerRigid = Player.GetComponent<Rigidbody2D>();
         PlayerSprite = Player.GetComponent<SpriteRenderer>();
         RectCollider = Player.GetComponent<BoxCollider2D>();
-        TriCollider = Player.GetComponent<EdgeCollider2D>();
+        TriCollider = Player.GetComponent<PolygonCollider2D>();
         CirCollider = Player.GetComponent<CircleCollider2D>();
 
         ChangeShape(StartShape);
@@ -142,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+                print("Jumping");
                 PlayerRigid.velocity = new Vector2(PlayerRigid.velocity.x, JumpHeight);
                 CanJump = false;
             }
