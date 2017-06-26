@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour {
     GameObject Player;
 
     float X;
+    float Y;
     bool Centered;
     bool Left;
 
@@ -18,28 +19,28 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Camera.main.WorldToScreenPoint(Player.transform.position).x > 686.5 && Camera.main.WorldToScreenPoint(Player.transform.position).x <= 750)
+        if(Camera.main.WorldToScreenPoint(Player.transform.position).x > (Screen.width / 2) + 169 && Camera.main.WorldToScreenPoint(Player.transform.position).x <= (Screen.width / 2) + 232.5)
         {
             Centered = false;
             Left = false;
             X += Time.deltaTime * 3;
             this.transform.position = new Vector3(X, transform.position.y, transform.position.z);
         }
-        else if (Camera.main.WorldToScreenPoint(Player.transform.position).x > 750)
+        else if (Camera.main.WorldToScreenPoint(Player.transform.position).x > (Screen.width / 2) + 232.5)
         {
             Centered = false;
             Left = false;
             X += Time.deltaTime * 5;
             this.transform.position = new Vector3(X, transform.position.y, transform.position.z);
         }
-        else if (Camera.main.WorldToScreenPoint(Player.transform.position).x < 348.5 && Camera.main.WorldToScreenPoint(Player.transform.position).x >= 285)
+        else if (Camera.main.WorldToScreenPoint(Player.transform.position).x < (Screen.width / 2) - 169 && Camera.main.WorldToScreenPoint(Player.transform.position).x >= (Screen.width / 2) - 232.5)
         {
             Centered = false;
             Left = true;
             X -= Time.deltaTime * 3;
             this.transform.position = new Vector3(X, transform.position.y, transform.position.z);
         }
-        else if(Camera.main.WorldToScreenPoint(Player.transform.position).x < 285)
+        else if(Camera.main.WorldToScreenPoint(Player.transform.position).x < (Screen.width / 2) - 232.5)
         {
             Centered = false;
             Left = true;
@@ -61,7 +62,7 @@ public class CameraController : MonoBehaviour {
                     this.transform.position = new Vector3(X, transform.position.y, transform.position.z);
                 }
 
-                if(Camera.main.WorldToScreenPoint(Player.transform.position).x > 516 && Camera.main.WorldToScreenPoint(Player.transform.position).x < 518)
+                if(Camera.main.WorldToScreenPoint(Player.transform.position).x > (Screen.width / 2) - 1 && Camera.main.WorldToScreenPoint(Player.transform.position).x < (Screen.width / 2) + 1)
                 {
                     Centered = true;
                 }
