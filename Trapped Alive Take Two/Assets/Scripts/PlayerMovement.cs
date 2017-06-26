@@ -44,6 +44,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float FallJumpHeight = 3;
 
+    [SerializeField]
+    Vector2 SquareOffset;
+
+    [SerializeField]
+    Vector2 SquareSize;
+
+    [SerializeField]
+    Vector2 RectangleOffset;
+
+    [SerializeField]
+    Vector2 RectangleSize;
+
     // Use this for initialization
     void Start()
     {
@@ -228,8 +240,8 @@ public class PlayerMovement : MonoBehaviour
         RectCollider.enabled = true;
         TriCollider.enabled = false;
         CirCollider.enabled = false;
-        RectCollider.offset = new Vector2(0.02245971f, 0.03265064f);
-        RectCollider.size = new Vector2(5.117493f, 5.163211f);
+        RectCollider.offset = SquareOffset;
+        RectCollider.size = SquareSize;
         JumpDistance = 5;
         JumpHeight = 4;
         MoveSpeed = 5;
@@ -243,8 +255,8 @@ public class PlayerMovement : MonoBehaviour
         RectCollider.enabled = true;
         TriCollider.enabled = false;
         CirCollider.enabled = false;
-        RectCollider.offset = new Vector2(-3.471959f, 0);
-        RectCollider.size = new Vector2(2.166965f, 7.71f);
+        RectCollider.offset = RectangleOffset;
+        RectCollider.size = RectangleSize;
         JumpDistance = 0;
         MoveSpeed = 3;
         JumpHeight = RectJumpHeight;
