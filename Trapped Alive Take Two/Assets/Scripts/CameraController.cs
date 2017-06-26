@@ -8,8 +8,8 @@ public class CameraController : MonoBehaviour {
     GameObject Player;
 
     float X;
+    float Y;
     bool Centered;
-    bool Left;
 
 	// Use this for initialization
 	void Start () {
@@ -18,50 +18,66 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Camera.main.WorldToScreenPoint(Player.transform.position).x > 686.5 && Camera.main.WorldToScreenPoint(Player.transform.position).x <= 750)
+        if(Camera.main.WorldToScreenPoint(Player.transform.position).x > (Screen.width / 2) + 169 && Camera.main.WorldToScreenPoint(Player.transform.position).x <= (Screen.width / 2) + 232.5)
         {
             Centered = false;
-            Left = false;
             X += Time.deltaTime * 3;
             this.transform.position = new Vector3(X, transform.position.y, transform.position.z);
         }
-        else if (Camera.main.WorldToScreenPoint(Player.transform.position).x > 750)
+        else if (Camera.main.WorldToScreenPoint(Player.transform.position).x > (Screen.width / 2) + 232.5)
         {
             Centered = false;
-            Left = false;
             X += Time.deltaTime * 5;
             this.transform.position = new Vector3(X, transform.position.y, transform.position.z);
         }
-        else if (Camera.main.WorldToScreenPoint(Player.transform.position).x < 348.5 && Camera.main.WorldToScreenPoint(Player.transform.position).x >= 285)
+        else if (Camera.main.WorldToScreenPoint(Player.transform.position).x < (Screen.width / 2) - 169 && Camera.main.WorldToScreenPoint(Player.transform.position).x >= (Screen.width / 2) - 232.5)
         {
             Centered = false;
-            Left = true;
             X -= Time.deltaTime * 3;
             this.transform.position = new Vector3(X, transform.position.y, transform.position.z);
         }
-        else if(Camera.main.WorldToScreenPoint(Player.transform.position).x < 285)
+        else if(Camera.main.WorldToScreenPoint(Player.transform.position).x < (Screen.width / 2) - 232.5)
         {
             Centered = false;
-            Left = true;
             X -= Time.deltaTime * 5;
             this.transform.position = new Vector3(X, transform.position.y, transform.position.z);
         }
-        else
-        {
-            if(Centered == false)
-            {
-                if (Left)
-                {
-                    X -= Time.deltaTime * 2;
-                    this.transform.position = new Vector3(X, transform.position.y, transform.position.z);
-                }
-                else
-                {
-                    X += Time.deltaTime * 2;
-                    this.transform.position = new Vector3(X, transform.position.y, transform.position.z);
-                }
 
-                if(Camera.main.WorldToScreenPoint(Player.transform.position).x > 516 && Camera.main.WorldToScreenPoint(Player.transform.position).x < 518)
+        if(Camera.main.WorldToScreenPoint(Player.transform.position).y > (Screen.height / 2) + 60 && Camera.main.WorldToScreenPoint(Player.transform.position).y <= (Screen.height / 2) + 90)
+        {
+            Centered = false;
+            Y += Time.deltaTime * 3;
+            this.transform.position = new Vector3(transform.position.x, Y, transform.position.z);
+        } 
+        else if(Camera.main.WorldToScreenPoint(Player.transform.position).y > (Screen.height / 2) + 90)
+        {
+            Centered = false;
+            Y += Time.deltaTime * 5;
+            this.transform.position = new Vector3(transform.position.x, Y, transform.position.z);
+        }
+        else if (Camera.main.WorldToScreenPoint(Player.transform.position).y < (Screen.height / 2) - 60 && Camera.main.WorldToScreenPoint(Player.transform.position).y >= (Screen.height / 2) - 90)
+        {
+            Centered = false;
+            Y -= Time.deltaTime * 3;
+            this.transform.position = new Vector3(transform.position.x, Y, transform.position.z);
+        }
+        else if (Camera.main.WorldToScreenPoint(Player.transform.position).y < (Screen.height / 2) - 90)
+        {
+            Centered = false;
+            Y -= Time.deltaTime * 5;
+            this.transform.position = new Vector3(transform.position.x, Y, transform.position.z);
+        }
+
+
+
+        if (Player.GetComponent<Rigidbody2D>().velocity == new Vector2(0, 0))
+        {
+            if (Centered == false)
+            {
+
+                transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y, this.transform.position.z), Time.deltaTime * 2);
+
+                if (Camera.main.WorldToScreenPoint(Player.transform.position).x > (Screen.width / 2) - 1 && Camera.main.WorldToScreenPoint(Player.transform.position).x < (Screen.width / 2) + 1)
                 {
                     Centered = true;
                 }
