@@ -3895,7 +3895,7 @@ These will be used as asset names, which you can then pass to AssetBundle.Load t
     </member>
     <member name="T:UnityEditor.DefaultAsset">
       <summary>
-        <para>DefaultAsset is used for assets that does not have a specific type (yet).</para>
+        <para>DefaultAsset is used for assets that do not have a specific type (yet).</para>
       </summary>
     </member>
     <member name="M:UnityEditor.DefaultAsset.#ctor">
@@ -11665,7 +11665,18 @@ More information - https:msdn.microsoft.comen-uslibrary/dn584397(v=vs.110).aspx.
       <summary>
         <para>Select a new build target to be active.</para>
       </summary>
-      <param name="target"></param>
+      <param name="target">Target build platform.</param>
+      <param name="targetGroup">Build target group.</param>
+      <returns>
+        <para>True if the build target was successfully switched, false otherwise (for example, if license checks fail, files are missing, or if the user has cancelled the operation via the UI).</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.EditorUserBuildSettings.SwitchActiveBuildTarget(UnityEditor.BuildTargetGroup,UnityEditor.BuildTarget)">
+      <summary>
+        <para>Select a new build target to be active.</para>
+      </summary>
+      <param name="target">Target build platform.</param>
+      <param name="targetGroup">Build target group.</param>
       <returns>
         <para>True if the build target was successfully switched, false otherwise (for example, if license checks fail, files are missing, or if the user has cancelled the operation via the UI).</para>
       </returns>
@@ -14639,7 +14650,1686 @@ Note: Use HandleUtility.GetHandleSize where you might want to have constant scre
     </member>
     <member name="P:UnityEditor.LightmapEditorSettings.aoMaxDistance">
       <summary>
+<<<<<<< HEAD
         <para>Beyond this distance a ray is considered to be unoccluded.</para>
+=======
+        <para>This is the array of currently visible column indices.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.widthOfAllVisibleColumns">
+      <summary>
+        <para>Returns the sum of all the widths of the visible columns in the visibleColumns array.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.CanOverwriteSerializedFields(UnityEditor.IMGUI.Controls.MultiColumnHeaderState,UnityEditor.IMGUI.Controls.MultiColumnHeaderState)">
+      <summary>
+        <para>Checks if the source state can transfer its serialized data to the destination state.</para>
+      </summary>
+      <param name="source">State that have serialized data to be transfered to the destination state.</param>
+      <param name="destination">Destination state.</param>
+      <returns>
+        <para>Returns true if the source state have the same number of columns as the destination state.</para>
+      </returns>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.Column">
+      <summary>
+        <para>Column state.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.Column.allowToggleVisibility">
+      <summary>
+        <para>Option to allow/disallow hiding the column from the context menu.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.Column.autoResize">
+      <summary>
+        <para>Option to allow the column to resize automatically when resizing the entire MultiColumnHeader.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.Column.canSort">
+      <summary>
+        <para>Is sorting enabled for this column. If false, left-clicking this column header has no effect.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.Column.contextMenuText">
+      <summary>
+        <para>If this is set then it is used for the context menu for toggling visibility, if not set then the ::headerContent is used.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.Column.headerContent">
+      <summary>
+        <para>This is the GUIContent that will be rendered in the column header.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.Column.headerTextAlignment">
+      <summary>
+        <para>Alignment of the header content.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.Column.maxWidth">
+      <summary>
+        <para>Maximum width of the column.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.Column.minWidth">
+      <summary>
+        <para>Minimum width of the column.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.Column.sortedAscending">
+      <summary>
+        <para>Value that controls if this column is sorted ascending or descending.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.Column.sortingArrowAlignment">
+      <summary>
+        <para>Alignment of the sorting arrow.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.Column.width">
+      <summary>
+        <para>The width of the column.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.#ctor(UnityEditor.IMGUI.Controls.MultiColumnHeaderState/Column[])">
+      <summary>
+        <para>Constructor.</para>
+      </summary>
+      <param name="columns">Column data.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.MultiColumnHeaderState.OverwriteSerializedFields(UnityEditor.IMGUI.Controls.MultiColumnHeaderState,UnityEditor.IMGUI.Controls.MultiColumnHeaderState)">
+      <summary>
+        <para>Overwrites the seralized fields from the source state to the destination state.</para>
+      </summary>
+      <param name="source">State that have serialized data to be transfered to the destination state.</param>
+      <param name="destination">Destination state.</param>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle">
+      <summary>
+        <para>Base class for a compound handle to edit a bounding volume in the Scene view.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.axes">
+      <summary>
+        <para>Flags specifying which axes should display control handles.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.center">
+      <summary>
+        <para>Gets or sets the center of the bounding volume for the handle.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.handleColor">
+      <summary>
+        <para>Specifies the color of the control handles.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.midpointHandleDrawFunction">
+      <summary>
+        <para>An optional Handles.CapFunction to use when displaying the control handles. Defaults to Handles.DotHandleCap if no value is specified.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.midpointHandleSizeFunction">
+      <summary>
+        <para>An optional Handles.SizeFunction to specify how large the control handles should be in the space of Handles.matrix. Defaults to a fixed screen-space size.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.wireframeColor">
+      <summary>
+        <para>Specifies the color of the wireframe shape.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.Axes">
+      <summary>
+        <para>A flag enumeration for specifying which axes on a PrimitiveBoundsHandle object should be enabled.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.Axes.All">
+      <summary>
+        <para>All axes.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.Axes.None">
+      <summary>
+        <para>No axes.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.Axes.X">
+      <summary>
+        <para>X-axis (bit 0).</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.Axes.Y">
+      <summary>
+        <para>Y-axis (bit 1).</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.Axes.Z">
+      <summary>
+        <para>Z-axis (bit 2).</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.#ctor(System.Int32)">
+      <summary>
+        <para>Create a new instance of the PrimitiveBoundsHandle class.</para>
+      </summary>
+      <param name="controlIDHint">An integer value used to generate consistent control IDs for each control handle on this instance. You may use any value you like, but should avoid using the same value for all of your PrimitiveBoundsHandle instances.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.DrawHandle">
+      <summary>
+        <para>A function to display this instance in the current handle camera using its current configuration.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.DrawWireframe">
+      <summary>
+        <para>Draw a wireframe shape for this instance. Subclasses must implement this method.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.GetSize">
+      <summary>
+        <para>Gets the current size of the bounding volume for this instance.</para>
+      </summary>
+      <returns>
+        <para>The current size of the bounding volume for this instance.</para>
+      </returns>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.HandleDirection">
+      <summary>
+        <para>An enumeration of directions the handle moves in.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.HandleDirection.NegativeX">
+      <summary>
+        <para>This value corresponds to the handle moving in a negative direction away from PrimitiveBoundsHandle.center along the x-axis.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.HandleDirection.NegativeY">
+      <summary>
+        <para>This value corresponds to the handle moving in a negative direction away from PrimitiveBoundsHandle.center along the y-axis.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.HandleDirection.NegativeZ">
+      <summary>
+        <para>This value corresponds to the handle moving in a negative direction away from PrimitiveBoundsHandle.center along the z-axis.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.HandleDirection.PositiveX">
+      <summary>
+        <para>This value corresponds to the handle moving in a positive direction away from PrimitiveBoundsHandle.center along the x-axis.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.HandleDirection.PositiveY">
+      <summary>
+        <para>This value corresponds to the handle moving in a positive direction away from PrimitiveBoundsHandle.center along the y-axis.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.HandleDirection.PositiveZ">
+      <summary>
+        <para>This value corresponds to the handle moving in a positive direction away from PrimitiveBoundsHandle.center along the z-axis.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.IsAxisEnabled(UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle/Axes)">
+      <summary>
+        <para>Gets a value indicating whether the specified axis is enabled for the current instance.</para>
+      </summary>
+      <param name="axis">An Axes.</param>
+      <param name="vector3Axis">An integer corresponding to an axis on a Vector3. For example, 0 is x, 1 is y, and 2 is z.</param>
+      <returns>
+        <para>true if the specified axis is enabled; otherwise, false.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.IsAxisEnabled(System.Int32)">
+      <summary>
+        <para>Gets a value indicating whether the specified axis is enabled for the current instance.</para>
+      </summary>
+      <param name="axis">An Axes.</param>
+      <param name="vector3Axis">An integer corresponding to an axis on a Vector3. For example, 0 is x, 1 is y, and 2 is z.</param>
+      <returns>
+        <para>true if the specified axis is enabled; otherwise, false.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.OnHandleChanged(UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle/HandleDirection,UnityEngine.Bounds,UnityEngine.Bounds)">
+      <summary>
+        <para>A callback for when a control handle was dragged in the scene.</para>
+      </summary>
+      <param name="handle">The handle that was dragged.</param>
+      <param name="boundsOnClick">The raw Bounds for this instance's volume at the time the control handle was clicked.</param>
+      <param name="newBounds">The raw Bounds for this instance's volume based on the updated handle position.</param>
+      <returns>
+        <para>The bounds that should be applied to this instance, with any necessary modifications applied.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.SetColor(UnityEngine.Color)">
+      <summary>
+        <para>Set handleColor and wireframeColor to the same value.</para>
+      </summary>
+      <param name="color">The color to use for the control handles and the wireframe shape.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle.SetSize(UnityEngine.Vector3)">
+      <summary>
+        <para>Sets the current size of the bounding volume for this instance.</para>
+      </summary>
+      <param name="size">A Vector3 specifying how large the bounding volume is along all of its axes.</param>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.SearchField">
+      <summary>
+        <para>The SearchField control creates a text field for a user to input text that can be used for searching.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.SearchField.autoSetFocusOnFindCommand">
+      <summary>
+        <para>Changes the keyboard focus to the search field when the user presses ‘Ctrl/Cmd + F’ when set to true. It is true by default.</para>
+      </summary>
+    </member>
+    <member name="?:UnityEditor.IMGUI.Controls.SearchField.downOrUpArrowKeyPressed(UnityEditor.IMGUI.Controls.SearchField/SearchFieldCallback)">
+      <summary>
+        <para>This event is dispatched when the focused search field detects that the down or up key is pressed and can be used to change keyboard focus to another control, such as the TreeView.</para>
+      </summary>
+      <param name="value"></param>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.SearchField.searchFieldControlID">
+      <summary>
+        <para>This is the controlID used for the text field to obtain keyboard focus.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.SearchField.HasFocus">
+      <summary>
+        <para>This function returns true if the search field has keyboard focus.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.SearchField.OnGUI(System.String,UnityEngine.GUILayoutOption[])">
+      <summary>
+        <para>This function displays the search field with the default UI style and uses the GUILayout class to automatically calculate the position and size of the Rect it is rendered to. Pass an optional list to specify extra layout properties.</para>
+      </summary>
+      <param name="text">Text string to display in the search field.</param>
+      <param name="options">An optional list of layout options that specify extra layout properties. &lt;br&gt;
+See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
+GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.</param>
+      <returns>
+        <para>The text entered in the search field. The original input string is returned instead if the search field text was not changed.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.SearchField.OnGUI(UnityEngine.Rect,System.String)">
+      <summary>
+        <para>This function displays the search field with the default UI style in the given Rect.</para>
+      </summary>
+      <param name="rect">Rectangle to use for the search field.</param>
+      <param name="text">Text string to display in the search field.</param>
+      <returns>
+        <para>The text entered in the search field. The original input string is returned instead if the search field text was not changed.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.SearchField.OnGUI(UnityEngine.Rect,System.String,UnityEngine.GUIStyle,UnityEngine.GUIStyle,UnityEngine.GUIStyle)">
+      <summary>
+        <para>This function displays a search text field with the given Rect and UI style parameters.</para>
+      </summary>
+      <param name="rect">Rectangle to use for the search field.</param>
+      <param name="text">Text string to display in the search field.</param>
+      <param name="style">The text field style.</param>
+      <param name="cancelButtonStyle">The cancel button style used when there is text in the search field.</param>
+      <param name="emptyCancelButtonStyle">The cancel button style used when there is no text in the search field.</param>
+      <returns>
+        <para>The text entered in the SearchField. The original input string is returned instead if the search field text was not changed.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.SearchField.OnToolbarGUI(System.String,UnityEngine.GUILayoutOption[])">
+      <summary>
+        <para>This function displays the search field with the toolbar UI style and uses the GUILayout class to automatically calculate the position and size of the Rect it is rendered to. Pass an optional list to specify extra layout properties.</para>
+      </summary>
+      <param name="text">Text string to display in the search field.</param>
+      <param name="options">An optional list of layout options that specify extra layout properties. &lt;br&gt;
+See Also: GUILayout.Width, GUILayout.Height, GUILayout.MinWidth, GUILayout.MaxWidth, GUILayout.MinHeight,
+GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.</param>
+      <returns>
+        <para>The text entered in the search field. The original input string is returned instead if the search field text was not changed.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.SearchField.OnToolbarGUI(UnityEngine.Rect,System.String)">
+      <summary>
+        <para>This function displays the search field with a toolbar style in the given Rect.</para>
+      </summary>
+      <param name="rect">Rectangle to use for the search field.</param>
+      <param name="text">Text string to display in the search field.</param>
+      <returns>
+        <para>The text entered in the search field. The original input string is returned instead if the search field text was not changed.</para>
+      </returns>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.SearchField.SearchFieldCallback">
+      <summary>
+        <para>This is a generic callback delegate for SearchField events and does not take any parameters.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.SearchField.SetFocus">
+      <summary>
+        <para>This function changes keyboard focus to the search field so a user can start typing.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.SphereBoundsHandle">
+      <summary>
+        <para>A compound handle to edit a sphere-shaped bounding volume in the Scene view.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.SphereBoundsHandle.radius">
+      <summary>
+        <para>Gets or sets the radius of the capsule bounding volume.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.SphereBoundsHandle.#ctor(System.Int32)">
+      <summary>
+        <para>Create a new instance of the SphereBoundsHandle class.</para>
+      </summary>
+      <param name="controlIDHint">An integer value used to generate consistent control IDs for each control handle on this instance. You may use any value you like, but should avoid using the same value for all of your PrimitiveBoundsHandle instances.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.SphereBoundsHandle.DrawWireframe">
+      <summary>
+        <para>Draw a wireframe sphere for this instance.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.SphereBoundsHandle.OnHandleChanged(UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle/HandleDirection,UnityEngine.Bounds,UnityEngine.Bounds)">
+      <summary>
+        <para>A callback for when a control handle was dragged in the scene.</para>
+      </summary>
+      <param name="handle">The handle that was dragged.</param>
+      <param name="boundsOnClick">The raw Bounds for this instance's volume at the time the control handle was clicked.</param>
+      <param name="newBounds">The raw Bounds for this instance's volume based on the updated handle position.</param>
+      <returns>
+        <para>The bounds that should be applied to this instance, with any necessary modifications applied.</para>
+      </returns>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.TreeView">
+      <summary>
+        <para>The TreeView is an IMGUI control that lets you create tree views, list views and multi-column tables for Editor tools.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.baseIndent">
+      <summary>
+        <para>Indent used for all rows before the tree foldout arrows and content.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.cellMargin">
+      <summary>
+        <para>When using a MultiColumnHeader this value adjusts the cell rects provided for all columns except the tree foldout column.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.columnIndexForTreeFoldouts">
+      <summary>
+        <para>When using a MultiColumnHeader this value should be set to the column index in which the foldout arrows should appear.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.customFoldoutYOffset">
+      <summary>
+        <para>Custom vertical offset of the foldout arrow.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.depthIndentWidth">
+      <summary>
+        <para>Value that returns how far the foldouts are indented for each increasing depth value.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.extraSpaceBeforeIconAndLabel">
+      <summary>
+        <para>Value to control the spacing before the default icon and label. Can be used e.g for placing a toggle button to the left of the content.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.foldoutWidth">
+      <summary>
+        <para>Width of the built-in foldout arrow.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.hasSearch">
+      <summary>
+        <para>The current search state of the TreeView.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.isDragging">
+      <summary>
+        <para>True if the user is currently dragging one or more items in the TreeView, and false otherwise.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.isInitialized">
+      <summary>
+        <para>The TreeView is initialized by calling Reload(). Therefore returns false until Reload() is called the first time.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.multiColumnHeader">
+      <summary>
+        <para>Get the MultiColumnHeader of the TreeView. Can be null if the TreeView was created without a MultiColumnHeader.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.rootItem">
+      <summary>
+        <para>The hidden root item of the TreeView (it is never rendered).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.rowHeight">
+      <summary>
+        <para>The fixed height used for each row in the TreeView if GetCustomRowHeight have not been overridden.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.searchString">
+      <summary>
+        <para>Current search string of the TreeView.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.showAlternatingRowBackgrounds">
+      <summary>
+        <para>Enable this to show alternating row background colors.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.showBorder">
+      <summary>
+        <para>Enable this to show a border around the TreeView.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.showingHorizontalScrollBar">
+      <summary>
+        <para>Returns true if the horizontal scroll bar is showing, otherwise false.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.showingVerticalScrollBar">
+      <summary>
+        <para>Returns true if the vertical scroll bar is showing, otherwise false.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.state">
+      <summary>
+        <para>The state of the TreeView (expanded state, selection, scroll etc.)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.totalHeight">
+      <summary>
+        <para>Returns the sum of the TreeView row heights, the MultiColumnHeader height (if used) and the border (if used).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.treeViewControlID">
+      <summary>
+        <para>The controlID used by the TreeView to obtain keyboard control focus.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeView.treeViewRect">
+      <summary>
+        <para>The Rect the TreeView is being rendered to.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.AddExpandedRows(UnityEditor.IMGUI.Controls.TreeViewItem,System.Collections.Generic.IList`1&lt;UnityEditor.IMGUI.Controls.TreeViewItem&gt;)">
+      <summary>
+        <para>Adds the expanded rows of the full tree to the input list. Only use this method if a full tree was built in BuildRoot.</para>
+      </summary>
+      <param name="root">Root of the TreeView.</param>
+      <param name="rows">Rows that will be refilled using the expanded state of TreeView.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.AfterRowsGUI">
+      <summary>
+        <para>This is called after all rows have their RowGUI called.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.BeforeRowsGUI">
+      <summary>
+        <para>This is called before any rows have their RowGUI called.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.BeginRename(UnityEditor.IMGUI.Controls.TreeViewItem)">
+      <summary>
+        <para>Shows the rename overlay for a TreeViewItem.</para>
+      </summary>
+      <param name="item">Item to rename.</param>
+      <param name="delay">Delay in seconds until the rename overlay shows.</param>
+      <returns>
+        <para>Returns true if renaming was started. Returns false if renaming was already active.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.BeginRename(UnityEditor.IMGUI.Controls.TreeViewItem,System.Single)">
+      <summary>
+        <para>Shows the rename overlay for a TreeViewItem.</para>
+      </summary>
+      <param name="item">Item to rename.</param>
+      <param name="delay">Delay in seconds until the rename overlay shows.</param>
+      <returns>
+        <para>Returns true if renaming was started. Returns false if renaming was already active.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.BuildRoot">
+      <summary>
+        <para>Abstract method that is required to be implemented. By default this method should create the full tree of TreeViewItems and return the root.</para>
+      </summary>
+      <returns>
+        <para>The root of the tree. This item can later be accessed by 'rootItem'.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.BuildRows(UnityEditor.IMGUI.Controls.TreeViewItem)">
+      <summary>
+        <para>Override this method to take control of how the rows are generated.</para>
+      </summary>
+      <param name="root">Root item that was created in the BuildRoot method.</param>
+      <returns>
+        <para>The rows list shown in the TreeView. Can later be accessed using GetRows().</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.CanBeParent(UnityEditor.IMGUI.Controls.TreeViewItem)">
+      <summary>
+        <para>Override this method to control which items are allowed to be parents.</para>
+      </summary>
+      <param name="item">Can this item be a parent?</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.CanChangeExpandedState(UnityEditor.IMGUI.Controls.TreeViewItem)">
+      <summary>
+        <para>Override this method to control whether an item can be expanded or collapsed by key or mouse.</para>
+      </summary>
+      <param name="item">Can this item be expanded/collapsed.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.CanMultiSelect(UnityEditor.IMGUI.Controls.TreeViewItem)">
+      <summary>
+        <para>Override this method to control whether the item can be part of a multiselection.</para>
+      </summary>
+      <param name="item">Can this item be part of a multiselection.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.CanRename(UnityEditor.IMGUI.Controls.TreeViewItem)">
+      <summary>
+        <para>Override this method to control whether the item can be renamed using a keyboard shortcut or when clicking an already selected item.</para>
+      </summary>
+      <param name="item">Can this item be renamed?</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.CanStartDrag(UnityEditor.IMGUI.Controls.TreeView/CanStartDragArgs)">
+      <summary>
+        <para>This function is called whenever a TreeViewItem is clicked and dragged. It returns false by default.</para>
+      </summary>
+      <param name="args"></param>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.TreeView.CanStartDragArgs">
+      <summary>
+        <para>Method arguments for the CanStartDrag virtual method.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.CanStartDragArgs.draggedItem">
+      <summary>
+        <para>Item about to be dragged.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.CanStartDragArgs.draggedItemIDs">
+      <summary>
+        <para>The multi-selection about to be dragged.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.CenterRectUsingSingleLineHeight(UnityEngine.Rect&amp;)">
+      <summary>
+        <para>Modifies the input rect so it is centered and have a height equal to EditorGUIUtility.singleLineHeight.</para>
+      </summary>
+      <param name="rect">Rect to be modified and centered.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.CollapseAll">
+      <summary>
+        <para>Collapse all expanded items in the TreeView.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.CommandEventHandling">
+      <summary>
+        <para>This function is called automatically and handles the ExecuteCommand events for “SelectAll” and “FrameSelection”. Override this function to extend or avoid Command events.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.ContextClicked">
+      <summary>
+        <para>Override this method to handle context clicks outside any items (but still in the TreeView rect).</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.ContextClickedItem(System.Int32)">
+      <summary>
+        <para>Override this method to handle a context click on an item with ID TreeViewItem.id.</para>
+      </summary>
+      <param name="id">TreeViewItem id.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.CreateChildListForCollapsedParent">
+      <summary>
+        <para>Creates a dummy TreeViewItem list. Useful when overriding BuildRows to prevent building a full tree of items.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.#ctor(UnityEditor.IMGUI.Controls.TreeViewState)">
+      <summary>
+        <para>The TreeView is always constructed with a state object and optionally a multi-column header object if a header is needed.</para>
+      </summary>
+      <param name="state">TreeView state (expanded items, selection etc.)</param>
+      <param name="multiColumnHeader">Multi-column header for the TreeView.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.#ctor(UnityEditor.IMGUI.Controls.TreeViewState,UnityEditor.IMGUI.Controls.MultiColumnHeader)">
+      <summary>
+        <para>The TreeView is always constructed with a state object and optionally a multi-column header object if a header is needed.</para>
+      </summary>
+      <param name="state">TreeView state (expanded items, selection etc.)</param>
+      <param name="multiColumnHeader">Multi-column header for the TreeView.</param>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.TreeView.DefaultGUI">
+      <summary>
+        <para>Default GUI methods and properties for the TreeView class.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.DefaultGUI.BoldLabel(UnityEngine.Rect,System.String,System.Boolean,System.Boolean)">
+      <summary>
+        <para>Draws a bold label that have correct text color when selected and/or focused.</para>
+      </summary>
+      <param name="rect">Rect to render the text in.</param>
+      <param name="label">Label to render.</param>
+      <param name="selected">Selected state used for determining text color.</param>
+      <param name="focused">Focused state used for determining text color.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.DefaultGUI.BoldLabelRightAligned(UnityEngine.Rect,System.String,System.Boolean,System.Boolean)">
+      <summary>
+        <para>Draws a bold right aligned label that have correct text color when selected and/or focused.</para>
+      </summary>
+      <param name="rect">Rect to render the text in.</param>
+      <param name="label">Label to render.</param>
+      <param name="selected">Selected state used for determining text color.</param>
+      <param name="focused">Focused state used for determining text color.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.DefaultGUI.FoldoutLabel(UnityEngine.Rect,System.String,System.Boolean,System.Boolean)">
+      <summary>
+        <para>Draws a foldout label that have correct text color when selected and/or focused.</para>
+      </summary>
+      <param name="rect">Rect to render the text in.</param>
+      <param name="label">Label to render.</param>
+      <param name="selected">Selected state used for determining text color.</param>
+      <param name="focused">Focused state used for determining text color.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.DefaultGUI.Label(UnityEngine.Rect,System.String,System.Boolean,System.Boolean)">
+      <summary>
+        <para>Draws a label that have correct text color when selected and/or focused.</para>
+      </summary>
+      <param name="rect">Rect to render the text in.</param>
+      <param name="label">Label to render.</param>
+      <param name="selected">Selected state used for determining text color.</param>
+      <param name="focused">Focused state used for determining text color.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.DefaultGUI.LabelRightAligned(UnityEngine.Rect,System.String,System.Boolean,System.Boolean)">
+      <summary>
+        <para>Draws a right aligned label that have correct text color when selected and/or focused.</para>
+      </summary>
+      <param name="rect">Rect to render the text in.</param>
+      <param name="label">Label to render.</param>
+      <param name="selected">Selected state used for determining text color.</param>
+      <param name="focused">Focused state used for determining text color.</param>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.TreeView.DefaultStyles">
+      <summary>
+        <para>Default styles used by the TreeView class.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DefaultStyles.backgroundEven">
+      <summary>
+        <para>Background style used for alternating row background colors when enabling TreeView.showAlternatingRowBackgrounds.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DefaultStyles.backgroundOdd">
+      <summary>
+        <para>Background style used for alternating row background colors when enabling TreeView.showAlternatingRowBackgrounds.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DefaultStyles.boldLabel">
+      <summary>
+        <para>Bold label with alternative text color when selected and/or focused.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DefaultStyles.boldLabelRightAligned">
+      <summary>
+        <para>Right aligned bold label with alternative text color when selected and/or focused.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DefaultStyles.foldoutLabel">
+      <summary>
+        <para>The label that is used for foldout label with alternative text color when selected and/or focused.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DefaultStyles.label">
+      <summary>
+        <para>Left aligned label with alternative text color when selected and/or focused.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DefaultStyles.labelRightAligned">
+      <summary>
+        <para>Right aligend label with alternative text color when selected and/or focused.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.DoesItemMatchSearch(UnityEditor.IMGUI.Controls.TreeViewItem,System.String)">
+      <summary>
+        <para>Override this function to extend or change the search behavior.</para>
+      </summary>
+      <param name="item">Item used for matching against the search string.</param>
+      <param name="search">The search string of the TreeView.</param>
+      <returns>
+        <para>True if item matches search string, otherwise false.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.DoubleClickedItem(System.Int32)">
+      <summary>
+        <para>Override this method to handle double click events on an item.</para>
+      </summary>
+      <param name="id">ID of TreeViewItem that was double clicked.</param>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.TreeView.DragAndDropArgs">
+      <summary>
+        <para>Method arguments for the HandleDragAndDrop virtual method.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DragAndDropArgs.dragAndDropPosition">
+      <summary>
+        <para>When dragging items the current drag can have the following 3 positions relative to the items: Upon an item, Between two items or Outside items.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DragAndDropArgs.insertAtIndex">
+      <summary>
+        <para>This index refers to the index in the children list of the parentItem where the current drag is positioned.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DragAndDropArgs.parentItem">
+      <summary>
+        <para>The parent item is set if the drag is either upon this item or between two of its children.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DragAndDropArgs.performDrop">
+      <summary>
+        <para>This value is false as long as the mouse button is down, when the mouse button is released it is true.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.TreeView.DragAndDropPosition">
+      <summary>
+        <para>Enum describing the possible positions a drag can have relative to the items: upon a item, between two items or outside items.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DragAndDropPosition.BetweenItems">
+      <summary>
+        <para>This value is used when dragging between two items.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DragAndDropPosition.OutsideItems">
+      <summary>
+        <para>This value is used when dragging outside all items.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.DragAndDropPosition.UponItem">
+      <summary>
+        <para>This value is used when the drag is upon a item.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.EndRename">
+      <summary>
+        <para>Ends renaming if the rename overlay is shown. If called while the rename overlay is not being shown, this method does nothing.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.ExpandAll">
+      <summary>
+        <para>Expand all collapsed items in the TreeView.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.ExpandedStateChanged">
+      <summary>
+        <para>Override to get notified when items are expanded or collapsed. This is a general notification that the expanded state has changed.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.FindItem(System.Int32,UnityEditor.IMGUI.Controls.TreeViewItem)">
+      <summary>
+        <para>Finds a TreeViewItem by an ID.</para>
+      </summary>
+      <param name="id">Find the TreeViewItem with this ID.</param>
+      <param name="searchFromThisItem">Sets the search to start from an item. Use 'rootItem' to search the entire tree.</param>
+      <returns>
+        <para>This search method returns the TreeViewItem found and returns null if not found.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.FindRows(System.Collections.Generic.IList`1&lt;System.Int32&gt;)">
+      <summary>
+        <para>Useful for converting from TreeViewItem IDs to TreeViewItems using the current rows.</para>
+      </summary>
+      <param name="ids">TreeViewItem IDs.</param>
+      <returns>
+        <para>TreeViewItems.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.FrameItem(System.Int32)">
+      <summary>
+        <para>This will reveal the item with ID id (by expanding the ancestors of that item) and will make sure it is visible in the ScrollView.</para>
+      </summary>
+      <param name="id">TreeViewItem ID.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.GetAncestors(System.Int32)">
+      <summary>
+        <para>This method is e.g. used for revealing items that are currently under a collapsed item.</para>
+      </summary>
+      <param name="id">TreeViewItem ID.</param>
+      <returns>
+        <para>List of all the ancestors of a given item with ID id.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.GetCellRectForTreeFoldouts(UnityEngine.Rect)">
+      <summary>
+        <para>Utility for multi column setups. This method will clip the input rowRect against the column rect defined by columnIndexForTreeFoldouts to get the cell rect where the the foldout arrows appear.</para>
+      </summary>
+      <param name="rowRect">Rect for a row.</param>
+      <returns>
+        <para>Cell rect in a multi column setup.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.GetContentIndent(UnityEditor.IMGUI.Controls.TreeViewItem)">
+      <summary>
+        <para>Returns the horizontal content offset for an item. This is where the content should begin (after the foldout arrow).</para>
+      </summary>
+      <param name="item">Item used to determine the indent.</param>
+      <returns>
+        <para>Indent.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.GetCustomRowHeight(System.Int32,UnityEditor.IMGUI.Controls.TreeViewItem)">
+      <summary>
+        <para>Override to control individual row heights.</para>
+      </summary>
+      <param name="row">Row index.</param>
+      <param name="item">Item for given row.</param>
+      <returns>
+        <para>Height of row.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.GetDescendantsThatHaveChildren(System.Int32)">
+      <summary>
+        <para>Returns all descendants for the item with ID id that have children.</para>
+      </summary>
+      <param name="id">TreeViewItem ID.</param>
+      <returns>
+        <para>Descendants that have children.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.GetExpanded">
+      <summary>
+        <para>Returns a list of TreeViewItem IDs that are currently expanded in the TreeView.</para>
+      </summary>
+      <returns>
+        <para>TreeViewItem IDs.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.GetFirstAndLastVisibleRows(System.Int32&amp;,System.Int32&amp;)">
+      <summary>
+        <para>Returns the first and the last indices of the rows that are visible in the scroll view of the TreeView.</para>
+      </summary>
+      <param name="firstRowVisible">First row visible.</param>
+      <param name="lastRowVisible">Last row visible.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.GetFoldoutIndent(UnityEditor.IMGUI.Controls.TreeViewItem)">
+      <summary>
+        <para>Returns the horizontal foldout offset for an item. This is where the foldout arrow is rendered.</para>
+      </summary>
+      <param name="item">Item used to determine the indent.</param>
+      <returns>
+        <para>Indent for the foldout arrow.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.GetRenameRect(UnityEngine.Rect,System.Int32,UnityEditor.IMGUI.Controls.TreeViewItem)">
+      <summary>
+        <para>Override this method if custom GUI handling are used in RowGUI. This method for controls where the rename overlay appears.</para>
+      </summary>
+      <param name="rowRect">Row rect for the item currently being renamed.</param>
+      <param name="row">Row index for the item currently being renamed.</param>
+      <param name="item">TreeViewItem that are currently being renamed.</param>
+      <returns>
+        <para>The rect where the rename overlay should appear.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.GetRowRect(System.Int32)">
+      <summary>
+        <para>Get the rect for a row.</para>
+      </summary>
+      <param name="row">Row index.</param>
+      <returns>
+        <para>Row rect.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.GetRows">
+      <summary>
+        <para>This is the list of TreeViewItems that have been built in BuildRows.</para>
+      </summary>
+      <returns>
+        <para>Rows.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.GetSelection">
+      <summary>
+        <para>Returns the list of TreeViewItem IDs that are currently selected.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.HandleDragAndDrop(UnityEditor.IMGUI.Controls.TreeView/DragAndDropArgs)">
+      <summary>
+        <para>Override this function to control the drag and drop behavior of the TreeView.</para>
+      </summary>
+      <param name="args">Drag and drop arguments.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.HasFocus">
+      <summary>
+        <para>Returns true if the TreeView and its EditorWindow have keyboard focus.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.HasSelection">
+      <summary>
+        <para>Returns true if the TreeView has a selection.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.IsChildListForACollapsedParent(System.Collections.Generic.IList`1&lt;UnityEditor.IMGUI.Controls.TreeViewItem&gt;)">
+      <summary>
+        <para>Utility method for checking if the childList is identical to the one returned by the CreateChildListForCollapsedParent method.</para>
+      </summary>
+      <param name="childList">Children list of a TreeViewItem.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.IsExpanded(System.Int32)">
+      <summary>
+        <para>Returns true if the TreeViewItem with ID id is currently expanded.</para>
+      </summary>
+      <param name="id">TreeViewItem ID.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.IsSelected(System.Int32)">
+      <summary>
+        <para>Returns true if the TreeViewItem with ID id is currently selected.</para>
+      </summary>
+      <param name="id">TreeViewItem ID.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.KeyEvent">
+      <summary>
+        <para>Override this method to handle events when the TreeView has keyboard focus.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.OnGUI(UnityEngine.Rect)">
+      <summary>
+        <para>This is the main GUI method of the TreeView, where the TreeViewItems are processed and drawn.</para>
+      </summary>
+      <param name="rect">Rect where the TreeView is rendered.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.RefreshCustomRowHeights">
+      <summary>
+        <para>Refreshes the cache of custom row rects based on the heights returned by GetCustomRowHeight.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.Reload">
+      <summary>
+        <para>Call this to force the TreeView to reload its data. This in turn causes BuildRoot and BuildRows to be called.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.RenameEnded(UnityEditor.IMGUI.Controls.TreeView/RenameEndedArgs)">
+      <summary>
+        <para>Called when rename ends either by the user completing the renaming process, when the rename overlay loses focus or is closed using  EndRename.</para>
+      </summary>
+      <param name="args"></param>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.TreeView.RenameEndedArgs">
+      <summary>
+        <para>Method arguments for the virtual method RenameEnded.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.RenameEndedArgs.acceptedRename">
+      <summary>
+        <para>Is true if the rename is accepted.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.RenameEndedArgs.itemID">
+      <summary>
+        <para>Item with ID that are being renamed.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.RenameEndedArgs.newName">
+      <summary>
+        <para>Name entered in the rename overlay.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.RenameEndedArgs.originalName">
+      <summary>
+        <para>The original name when starting the rename.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.Repaint">
+      <summary>
+        <para>Request a repaint of the window that the TreeView is rendered in.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.RowGUI(UnityEditor.IMGUI.Controls.TreeView/RowGUIArgs)">
+      <summary>
+        <para>Override this method to add custom GUI content for the rows in the TreeView.</para>
+      </summary>
+      <param name="args">Row data.</param>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.TreeView.RowGUIArgs">
+      <summary>
+        <para>Method arguments for the virtual method RowGUI.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.RowGUIArgs.focused">
+      <summary>
+        <para>This value is true only when the TreeView has keyboard focus and the TreeView's window has focus.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.RowGUIArgs.isRenaming">
+      <summary>
+        <para>This value is true when the ::item is currently being renamed.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.RowGUIArgs.item">
+      <summary>
+        <para>Item for the current row being handled in TreeView.RowGUI.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.RowGUIArgs.label">
+      <summary>
+        <para>Label used for text rendering of the item displayName. Note this is an empty string when isRenaming == true.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.RowGUIArgs.row">
+      <summary>
+        <para>Row index into the list of current rows.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.RowGUIArgs.rowRect">
+      <summary>
+        <para>Row rect for the current row being handled.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.RowGUIArgs.selected">
+      <summary>
+        <para>This value is true when the current row's item is part of the current selection.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.RowGUIArgs.GetCellRect(System.Int32)">
+      <summary>
+        <para>If using a MultiColumnHeader for the TreeView this method can be used to get the cell rects of a row using the visible columns of the MultiColumnHeader.</para>
+      </summary>
+      <param name="visibleColumnIndex">Index into the list of visible columns of the multi column header.</param>
+      <returns>
+        <para>Cell rect defined by the intersection between the row rect and the rect of the visible column.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.RowGUIArgs.GetColumn(System.Int32)">
+      <summary>
+        <para>If using a MultiColumnHeader for the TreeView this method can be used to convert an index from the visible columns list to a index into the actual columns in the MultiColumnHeaderState.</para>
+      </summary>
+      <param name="visibleColumnIndex">This index is the index into the current visible columns.</param>
+      <returns>
+        <para>Column index into the columns array in MultiColumnHeaderState.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.RowGUIArgs.GetNumVisibleColumns">
+      <summary>
+        <para>If using a MultiColumnHeader for the TreeView use this method to get the number of visible columns currently being shown in the MultiColumnHeader.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SearchChanged(System.String)">
+      <summary>
+        <para>Override the method to get notified of search string changes.</para>
+      </summary>
+      <param name="newSearch"></param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SelectAllRows">
+      <summary>
+        <para>Selects all rows in the TreeView.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SelectionChanged(System.Collections.Generic.IList`1&lt;System.Int32&gt;)">
+      <summary>
+        <para>Override the method to get notified of selection changes.</para>
+      </summary>
+      <param name="selectedIds">TreeViewItem IDs.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SelectionClick(UnityEditor.IMGUI.Controls.TreeViewItem,System.Boolean)">
+      <summary>
+        <para>Use this method in RowGUI to peform the logic of a mouse click.</para>
+      </summary>
+      <param name="item">TreeViewItem clicked.</param>
+      <param name="keepMultiSelection">If true then keeps the multiselection when clicking on a item already part of the selection. If false then clears the selection before selecting the item clicked. For left button clicks this is usually false. For context clicks it is usually true so a context opereration can operate on the multiselection.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SetExpanded(System.Int32,System.Boolean)">
+      <summary>
+        <para>Set a single TreeViewItem to be expanded or collapsed.</para>
+      </summary>
+      <param name="id">TreeViewItem ID.</param>
+      <param name="expanded">True expands item. False collapses item.</param>
+      <returns>
+        <para>True if item changed expanded state, false if item already had the expanded state.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SetExpanded(System.Collections.Generic.IList`1&lt;System.Int32&gt;)">
+      <summary>
+        <para>Set the current expanded TreeViewItems of the TreeView. This will overwrite the previous expanded state.</para>
+      </summary>
+      <param name="ids">List of item IDs that should be expanded.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SetExpandedRecursive(System.Int32,System.Boolean)">
+      <summary>
+        <para>Expand or collapse all items under item with id.</para>
+      </summary>
+      <param name="id">TreeViewItem ID.</param>
+      <param name="expanded">Expanded state: true expands, false collapses.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SetFocus">
+      <summary>
+        <para>Calling this function changes the keyboard focus to the TreeView.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SetFocusAndEnsureSelectedItem">
+      <summary>
+        <para>Calling this function changes the keyboard focus to the TreeView and ensures an item is selected. Use this function to enable key navigation of the TreeView.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SetSelection(System.Collections.Generic.IList`1&lt;System.Int32&gt;)">
+      <summary>
+        <para>Set the selected items of the TreeView.</para>
+      </summary>
+      <param name="selectedIDs">TreeViewItem IDs.</param>
+      <param name="options">Options for extra logic performed after the selection. See TreeViewSelectionOptions.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SetSelection(System.Collections.Generic.IList`1&lt;System.Int32&gt;,UnityEditor.IMGUI.Controls.TreeViewSelectionOptions)">
+      <summary>
+        <para>Set the selected items of the TreeView.</para>
+      </summary>
+      <param name="selectedIDs">TreeViewItem IDs.</param>
+      <param name="options">Options for extra logic performed after the selection. See TreeViewSelectionOptions.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SetupDepthsFromParentsAndChildren(UnityEditor.IMGUI.Controls.TreeViewItem)">
+      <summary>
+        <para>Utility method using the depth of the input TreeViewItem to set the correct depths for all its descendant TreeViewItems.</para>
+      </summary>
+      <param name="root">TreeViewItem from which the descendentans should have their depth updated.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SetupDragAndDrop(UnityEditor.IMGUI.Controls.TreeView/SetupDragAndDropArgs)">
+      <summary>
+        <para>This function is called when CanStartDrag returns true.</para>
+      </summary>
+      <param name="args"></param>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.TreeView.SetupDragAndDropArgs">
+      <summary>
+        <para>Method arguments to the virtual method SetupDragAndDrop.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeView.SetupDragAndDropArgs.draggedItemIDs">
+      <summary>
+        <para>TreeViewItem IDs being dragged.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SetupParentsAndChildrenFromDepths(UnityEditor.IMGUI.Controls.TreeViewItem,System.Collections.Generic.IList`1&lt;UnityEditor.IMGUI.Controls.TreeViewItem&gt;)">
+      <summary>
+        <para>Utility method for initializing all the parent and children properties of the rows using the order and the depths values that have been set.</para>
+      </summary>
+      <param name="root">The hidden root item.</param>
+      <param name="rows">TreeViewItems where only the depth property have been set.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeView.SortItemIDsInRowOrder(System.Collections.Generic.IList`1&lt;System.Int32&gt;)">
+      <summary>
+        <para>Returns a list sorted in the order in which they are shown in the TreeView.</para>
+      </summary>
+      <param name="ids">TreeViewItem IDs.</param>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.TreeViewItem">
+      <summary>
+        <para>The TreeViewItem is used to build the tree representation of a tree data structure.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeViewItem.children">
+      <summary>
+        <para>The list of child items of this TreeViewItem.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeViewItem.depth">
+      <summary>
+        <para>The depth refers to how many ancestors this item has, and corresponds to the number of horizontal ‘indents’ this item has.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeViewItem.displayName">
+      <summary>
+        <para>Name shown for this item when rendered.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeViewItem.hasChildren">
+      <summary>
+        <para>Returns true if children has any items.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeViewItem.icon">
+      <summary>
+        <para>If set, this icon will be rendered to the left of the displayName. The icon is rendered at 16x16 points by default.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeViewItem.id">
+      <summary>
+        <para>Unique ID for an item.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeViewItem.parent">
+      <summary>
+        <para>The parent of this TreeViewItem. If it is null then it is considered the root of the TreeViewItem tree.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeViewItem.AddChild(UnityEditor.IMGUI.Controls.TreeViewItem)">
+      <summary>
+        <para>Helper method that adds the child TreeViewItem to the children list and sets the parent property on the child.</para>
+      </summary>
+      <param name="child">TreeViewItem to be added to the children list.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeViewItem.#ctor(System.Int32)">
+      <summary>
+        <para>TreeViewItem constructor.</para>
+      </summary>
+      <param name="id">Unique ID to identify this TreeViewItem with among all TreeViewItems of the TreeView. See Also id.</param>
+      <param name="depth">Depth of this TreeViewItem. See Also depth.</param>
+      <param name="displayName">Rendered name of this TreeViewItem. See Also displayName.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeViewItem.#ctor(System.Int32,System.Int32)">
+      <summary>
+        <para>TreeViewItem constructor.</para>
+      </summary>
+      <param name="id">Unique ID to identify this TreeViewItem with among all TreeViewItems of the TreeView. See Also id.</param>
+      <param name="depth">Depth of this TreeViewItem. See Also depth.</param>
+      <param name="displayName">Rendered name of this TreeViewItem. See Also displayName.</param>
+    </member>
+    <member name="M:UnityEditor.IMGUI.Controls.TreeViewItem.#ctor(System.Int32,System.Int32,System.String)">
+      <summary>
+        <para>TreeViewItem constructor.</para>
+      </summary>
+      <param name="id">Unique ID to identify this TreeViewItem with among all TreeViewItems of the TreeView. See Also id.</param>
+      <param name="depth">Depth of this TreeViewItem. See Also depth.</param>
+      <param name="displayName">Rendered name of this TreeViewItem. See Also displayName.</param>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.TreeViewSelectionOptions">
+      <summary>
+        <para>Enum used by the TreeView.SetSelection method.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeViewSelectionOptions.FireSelectionChanged">
+      <summary>
+        <para>If this flag is passed to TreeView.SetSelection then the TreeView will call the its TreeView.SelectionChanged method.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeViewSelectionOptions.None">
+      <summary>
+        <para>If this flag is passed to TreeView.SetSelection no extra logic is be performed after setting selection.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeViewSelectionOptions.RevealAndFrame">
+      <summary>
+        <para>If this flag is passed to TreeView.SetSelection then the TreeView will make sure the last item in the input selection list is visible on screen.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.IMGUI.Controls.TreeViewState">
+      <summary>
+        <para>The TreeViewState contains serializable state information for the TreeView.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeViewState.expandedIDs">
+      <summary>
+        <para>This is the list of currently expanded TreeViewItem IDs.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeViewState.lastClickedID">
+      <summary>
+        <para>The ID for the TreeViewItem that currently is being used for multi selection and key navigation.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.IMGUI.Controls.TreeViewState.scrollPos">
+      <summary>
+        <para>The current scroll values of the TreeView's scroll view.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeViewState.searchString">
+      <summary>
+        <para>Search string state that can be used in the TreeView to filter the tree data when creating the TreeViewItems.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.IMGUI.Controls.TreeViewState.selectedIDs">
+      <summary>
+        <para>Selected TreeViewItem IDs. Use of the SetSelection and IsSelected API will access this state.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.ImportAssetOptions">
+      <summary>
+        <para>Asset importing options.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.ImportAssetOptions.Default">
+      <summary>
+        <para>Default import options.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.ImportAssetOptions.DontDownloadFromCacheServer">
+      <summary>
+        <para>Force a full reimport but don't download the assets from the cache server.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.ImportAssetOptions.ForceSynchronousImport">
+      <summary>
+        <para>Import all assets synchronously.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.ImportAssetOptions.ForceUncompressedImport">
+      <summary>
+        <para>Forces asset import as uncompressed for edition facilities.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.ImportAssetOptions.ForceUpdate">
+      <summary>
+        <para>User initiated asset import.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.ImportAssetOptions.ImportRecursive">
+      <summary>
+        <para>When a folder is imported, import all its contents as well.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.InitializeOnLoadAttribute">
+      <summary>
+        <para>Allow an editor class to be initialized when Unity loads without action from the user.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.InitializeOnLoadMethodAttribute">
+      <summary>
+        <para>Allow an editor class method to be initialized when Unity loads without action from the user.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.iOSAppInBackgroundBehavior">
+      <summary>
+        <para>Application behavior when entering background.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSAppInBackgroundBehavior.Custom">
+      <summary>
+        <para>Custom background behavior, see iOSBackgroundMode for specific background modes.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSAppInBackgroundBehavior.Exit">
+      <summary>
+        <para>Application should exit when entering background.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSAppInBackgroundBehavior.Suspend">
+      <summary>
+        <para>Application should suspend execution when entering background.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.iOSBackgroundMode">
+      <summary>
+        <para>Background modes supported by the application corresponding to project settings in Xcode.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSBackgroundMode.Audio">
+      <summary>
+        <para>Audio, AirPlay and Picture in Picture.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSBackgroundMode.BluetoothCentral">
+      <summary>
+        <para>Uses Bluetooth LE accessories.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSBackgroundMode.BluetoothPeripheral">
+      <summary>
+        <para>Acts as a Bluetooth LE accessory.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSBackgroundMode.ExternalAccessory">
+      <summary>
+        <para>External accessory communication.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSBackgroundMode.Fetch">
+      <summary>
+        <para>Background fetch.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSBackgroundMode.Location">
+      <summary>
+        <para>Location updates.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSBackgroundMode.NewsstandContent">
+      <summary>
+        <para>Newsstand downloads.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSBackgroundMode.None">
+      <summary>
+        <para>No background modes supported.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSBackgroundMode.RemoteNotification">
+      <summary>
+        <para>Remote notifications.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSBackgroundMode.VOIP">
+      <summary>
+        <para>Voice over IP.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.iOSBuildType">
+      <summary>
+        <para>Build configurations for the generated Xcode project.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSBuildType.Debug">
+      <summary>
+        <para>Build configuration set to Debug for the generated Xcode project.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSBuildType.Release">
+      <summary>
+        <para>Build configuration set to Release for the generated Xcode project with optimization enabled.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.iOSDeviceRequirement">
+      <summary>
+        <para>A device requirement description used for configuration of App Slicing.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.iOSDeviceRequirement.values">
+      <summary>
+        <para>The values of the device requirement description.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.iOSDeviceRequirement.#ctor">
+      <summary>
+        <para>Constructs new device requirement description.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.iOSSdkVersion">
+      <summary>
+        <para>Supported iOS SDK versions.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSSdkVersion.DeviceSDK">
+      <summary>
+        <para>Device SDK.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSSdkVersion.SimulatorSDK">
+      <summary>
+        <para>Simulator SDK.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.iOSShowActivityIndicatorOnLoading">
+      <summary>
+        <para>Activity Indicator on loading.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSShowActivityIndicatorOnLoading.DontShow">
+      <summary>
+        <para>Don't Show.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSShowActivityIndicatorOnLoading.Gray">
+      <summary>
+        <para>Gray.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSShowActivityIndicatorOnLoading.White">
+      <summary>
+        <para>White.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSShowActivityIndicatorOnLoading.WhiteLarge">
+      <summary>
+        <para>White Large.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.iOSStatusBarStyle">
+      <summary>
+        <para>iOS status bar style.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSStatusBarStyle.BlackOpaque">
+      <summary>
+        <para>Black opaque.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSStatusBarStyle.BlackTranslucent">
+      <summary>
+        <para>Black translucent.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSStatusBarStyle.Default">
+      <summary>
+        <para>Default.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.iOSTargetDevice">
+      <summary>
+        <para>Target iOS device.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetDevice.iPadOnly">
+      <summary>
+        <para>iPad Only.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetDevice.iPhoneAndiPad">
+      <summary>
+        <para>Universal : iPhone/iPod + iPad.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetDevice.iPhoneOnly">
+      <summary>
+        <para>iPhone/iPod Only.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.iOSTargetOSVersion">
+      <summary>
+        <para>Supported iOS deployment versions.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetOSVersion.iOS_4_0">
+      <summary>
+        <para>iOS 4.0.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetOSVersion.iOS_4_1">
+      <summary>
+        <para>iOS 4.1.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetOSVersion.iOS_4_2">
+      <summary>
+        <para>iOS 4.2.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetOSVersion.iOS_4_3">
+      <summary>
+        <para>iOS 4.3.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetOSVersion.iOS_5_0">
+      <summary>
+        <para>iOS 5.0.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetOSVersion.iOS_5_1">
+      <summary>
+        <para>iOS 5.1.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetOSVersion.iOS_6_0">
+      <summary>
+        <para>iOS 6.0.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetOSVersion.iOS_7_0">
+      <summary>
+        <para>iOS 7.0.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetOSVersion.iOS_7_1">
+      <summary>
+        <para>iOS 7.1.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetOSVersion.iOS_8_0">
+      <summary>
+        <para>iOS 8.0.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetOSVersion.iOS_8_1">
+      <summary>
+        <para>iOS 8.1.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.iOSTargetOSVersion.Unknown">
+      <summary>
+        <para>Unknown iOS version, managed by user.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.LightingDataAsset">
+      <summary>
+        <para>The lighting data asset used by the active scene.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.LightmapBakeQuality">
+      <summary>
+        <para>Bake quality setting for LightmapEditorSettings.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.LightmapBakeQuality.High">
+      <summary>
+        <para>High quality bake for final renderings.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEditor.LightmapBakeQuality.Low">
+      <summary>
+        <para>Low quality bake for preview renderings.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEditor.LightmapEditorSettings">
+      <summary>
+        <para>Various settings for the bake.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.LightmapEditorSettings.aoExponentDirect">
+      <summary>
+        <para>Ambient occlusion (AO) for direct lighting.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.LightmapEditorSettings.aoExponentIndirect">
+      <summary>
+        <para>Ambient occlusion (AO) for indirect lighting.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.LightmapEditorSettings.aoMaxDistance">
+      <summary>
+        <para>Beyond this distance a ray is considered to be unoccluded.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.LightmapEditorSettings.enableAmbientOcclusion">
+      <summary>
+        <para>Enable baked ambient occlusion (AO).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.LightmapEditorSettings.giBakeBackend">
+      <summary>
+        <para>Determines which backend to use for baking lightmaps.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.LightmapEditorSettings.giPathTracerFilter">
+      <summary>
+        <para>Determines the filtering kernel for the Progressive Path Tracer backend.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEditor.LightmapEditorSettings.giPathTracerSampling">
+      <summary>
+        <para>Determines which sampling strategy to use for baking lightmaps with the path tracing backend.</para>
+>>>>>>> origin/master
       </summary>
     </member>
     <member name="P:UnityEditor.LightmapEditorSettings.maxAtlasHeight">
@@ -15013,6 +16703,54 @@ Note: Use HandleUtility.GetHandleSize where you might want to have constant scre
       <param name="label"></param>
       <param name="position"></param>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="M:UnityEditor.MaterialEditor.DoubleSidedGIField">
+      <summary>
+        <para>Display UI for editing a material's Double Sided Global Illumination setting.
+Returns true if the UI is indeed displayed i.e. the material supports the Double Sided Global Illumination setting.
++See Also: Material.doubleSidedGI.</para>
+      </summary>
+      <returns>
+        <para>True if the UI is displayed, false otherwise.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.MaterialEditor.EmissionEnabledProperty">
+      <summary>
+        <para>This function will draw the UI for controlling whether emission is enabled or not on a material.</para>
+      </summary>
+      <returns>
+        <para>Returns true if enabled, or false if disabled or mixed due to multi-editing.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.MaterialEditor.EnableInstancingField">
+      <summary>
+        <para>Display UI for editing material's render queue setting.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEditor.MaterialEditor.EnableInstancingField(UnityEngine.Rect)">
+      <summary>
+        <para>Display UI for editing material's render queue setting within the specified rect.</para>
+      </summary>
+      <param name="r"></param>
+    </member>
+    <member name="M:UnityEditor.MaterialEditor.FixupEmissiveFlag(UnityEngine.Color,UnityEngine.MaterialGlobalIlluminationFlags)">
+      <summary>
+        <para>Returns a properly set global illlumination flag based on the passed in flag and the given color.</para>
+      </summary>
+      <param name="col">Emission color.</param>
+      <param name="flags">Current global illumination flag.</param>
+      <returns>
+        <para>The fixed up flag.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEditor.MaterialEditor.FixupEmissiveFlag(UnityEngine.Material)">
+      <summary>
+        <para>Properly sets up the globalIllumination flag on the given Material depending on the current flag's state and the material's emission property.</para>
+      </summary>
+      <param name="mat">The material to be fixed up.</param>
+    </member>
+>>>>>>> origin/master
     <member name="M:UnityEditor.MaterialEditor.FloatProperty(UnityEditor.MaterialProperty,System.String)">
       <summary>
         <para>Draw a property field for a float shader property.</para>
@@ -15945,7 +17683,7 @@ See Also: MaterialLightmapFlags.</para>
     </member>
     <member name="T:UnityEditor.MenuCommand">
       <summary>
-        <para>Used to extract the context for a MenuItem. MenuCommand objects are passed to custom menu item functions defined using the MenuItem attribute.</para>
+        <para>Used to extract the context for a MenuItem.</para>
       </summary>
     </member>
     <member name="F:UnityEditor.MenuCommand.context">
@@ -19755,7 +21493,7 @@ For more information - https:msdn.microsoft.comlibrarywindowsappshh779671https:m
     </member>
     <member name="T:UnityEditor.Rendering.PlatformShaderSettings">
       <summary>
-        <para>Used to set up shader settings, per-platorm and per-shader-hardware-tier.</para>
+        <para>Used to set up shader settings, per-platform and per-shader-hardware-tier.</para>
       </summary>
     </member>
     <member name="F:UnityEditor.Rendering.PlatformShaderSettings.cascadedShadowMaps">

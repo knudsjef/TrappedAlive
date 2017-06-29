@@ -67,7 +67,1089 @@
       <summary>
         <para>Gets the game identifier specified for a runtime platform.</para>
       </summary>
+<<<<<<< HEAD
       <param name="platform"></param>
+=======
+    </member>
+    <member name="F:UnityEngine.AdditionalCanvasShaderChannels.TexCoord2">
+      <summary>
+        <para>Include UV2 on the mesh vertices.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.AdditionalCanvasShaderChannels.TexCoord3">
+      <summary>
+        <para>Include UV3 on the mesh vertices.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.AI.NavMesh">
+      <summary>
+        <para>Singleton class to access the baked NavMesh.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMesh.avoidancePredictionTime">
+      <summary>
+        <para>Describes how far in the future the agents predict collisions for avoidance.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.AI.NavMesh.onPreUpdate">
+      <summary>
+        <para>Set a function to be called before the NavMesh is updated during the frame update execution.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMesh.pathfindingIterationsPerFrame">
+      <summary>
+        <para>The maximum amount of nodes processed each frame in the asynchronous pathfinding process.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.AddLink(UnityEngine.AI.NavMeshLinkData)">
+      <summary>
+        <para>Adds a link to the NavMesh. The link is described by the NavMeshLinkData struct.</para>
+      </summary>
+      <param name="link">Describing the properties of the link.</param>
+      <returns>
+        <para>Representing the added link.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.AddLink(UnityEngine.AI.NavMeshLinkData,UnityEngine.Vector3,UnityEngine.Quaternion)">
+      <summary>
+        <para>Adds a link to the NavMesh. The link is described by the NavMeshLinkData struct.</para>
+      </summary>
+      <param name="link">Describing the properties of the link.</param>
+      <param name="position">Translate the link to this position.</param>
+      <param name="rotation">Rotate the link to this orientation.</param>
+      <returns>
+        <para>Representing the added link.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.AddNavMeshData(UnityEngine.AI.NavMeshData)">
+      <summary>
+        <para>Adds the specified NavMeshData to the game.</para>
+      </summary>
+      <param name="navMeshData">Contains the data for the navmesh.</param>
+      <returns>
+        <para>Representing the added navmesh.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.AddNavMeshData(UnityEngine.AI.NavMeshData,UnityEngine.Vector3,UnityEngine.Quaternion)">
+      <summary>
+        <para>Adds the specified NavMeshData to the game.</para>
+      </summary>
+      <param name="navMeshData">Contains the data for the navmesh.</param>
+      <param name="position">Translate the navmesh to this position.</param>
+      <param name="rotation">Rotate the navmesh to this orientation.</param>
+      <returns>
+        <para>Representing the added navmesh.</para>
+      </returns>
+    </member>
+    <member name="F:UnityEngine.AI.NavMesh.AllAreas">
+      <summary>
+        <para>Area mask constant that includes all NavMesh areas.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.CalculatePath(UnityEngine.Vector3,UnityEngine.Vector3,System.Int32,UnityEngine.AI.NavMeshPath)">
+      <summary>
+        <para>Calculate a path between two points and store the resulting path.</para>
+      </summary>
+      <param name="sourcePosition">The initial position of the path requested.</param>
+      <param name="targetPosition">The final position of the path requested.</param>
+      <param name="areaMask">A bitfield mask specifying which NavMesh areas can be passed when calculating a path.</param>
+      <param name="path">The resulting path.</param>
+      <returns>
+        <para>True if a either a complete or partial path is found and false otherwise.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.CalculatePath(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.AI.NavMeshQueryFilter,UnityEngine.AI.NavMeshPath)">
+      <summary>
+        <para>Calculates a path between two positions mapped to the NavMesh, subject to the constraints and costs defined by the filter argument.</para>
+      </summary>
+      <param name="sourcePosition">The initial position of the path requested.</param>
+      <param name="targetPosition">The final position of the path requested.</param>
+      <param name="filter">A filter specifying the cost of NavMesh areas that can be passed when calculating a path.</param>
+      <param name="path">The resulting path.</param>
+      <returns>
+        <para>True if a either a complete or partial path is found and false otherwise.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.CalculateTriangulation">
+      <summary>
+        <para>Calculates triangulation of the current navmesh.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.CreateSettings">
+      <summary>
+        <para>Creates and returns a new entry of NavMesh build settings available for runtime NavMesh building.</para>
+      </summary>
+      <returns>
+        <para>The created settings.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.FindClosestEdge(UnityEngine.Vector3,UnityEngine.AI.NavMeshHit&amp;,System.Int32)">
+      <summary>
+        <para>Locate the closest NavMesh edge from a point on the NavMesh.</para>
+      </summary>
+      <param name="sourcePosition">The origin of the distance query.</param>
+      <param name="hit">Holds the properties of the resulting location.</param>
+      <param name="areaMask">A bitfield mask specifying which NavMesh areas can be passed when finding the nearest edge.</param>
+      <returns>
+        <para>True if a nearest edge is found.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.FindClosestEdge(UnityEngine.Vector3,UnityEngine.AI.NavMeshHit&amp;,UnityEngine.AI.NavMeshQueryFilter)">
+      <summary>
+        <para>Locate the closest NavMesh edge from a point on the NavMesh, subject to the constraints of the filter argument.</para>
+      </summary>
+      <param name="sourcePosition">The origin of the distance query.</param>
+      <param name="hit">Holds the properties of the resulting location.</param>
+      <param name="filter">A filter specifying which NavMesh areas can be passed when finding the nearest edge.</param>
+      <returns>
+        <para>True if a nearest edge is found.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.GetAreaCost(System.Int32)">
+      <summary>
+        <para>Gets the cost for path finding over geometry of the area type.</para>
+      </summary>
+      <param name="areaIndex">Index of the area to get.</param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.GetAreaFromName(System.String)">
+      <summary>
+        <para>Returns the area index for a named NavMesh area type.</para>
+      </summary>
+      <param name="areaName">Name of the area to look up.</param>
+      <returns>
+        <para>Index if the specified are, or -1 if no area found.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.GetLayerCost(System.Int32)">
+      <summary>
+        <para>Gets the cost for traversing over geometry of the layer type on all agents.</para>
+      </summary>
+      <param name="layer"></param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.GetNavMeshLayerFromName(System.String)">
+      <summary>
+        <para>Returns the layer index for a named layer.</para>
+      </summary>
+      <param name="layerName"></param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.GetSettingsByID(System.Int32)">
+      <summary>
+        <para>Returns an existing entry of NavMesh build settings.</para>
+      </summary>
+      <param name="agentTypeID">The ID to look for.</param>
+      <returns>
+        <para>The settings found.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.GetSettingsByIndex(System.Int32)">
+      <summary>
+        <para>Returns an existing entry of NavMesh build settings by its ordered index.</para>
+      </summary>
+      <param name="index">The index to retrieve from.</param>
+      <returns>
+        <para>The found settings.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.GetSettingsCount">
+      <summary>
+        <para>Returns the number of registered NavMesh build settings.</para>
+      </summary>
+      <returns>
+        <para>The number of registered entries.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.GetSettingsNameFromID(System.Int32)">
+      <summary>
+        <para>Returns the name associated with the NavMesh build settings matching the provided agent type ID.</para>
+      </summary>
+      <param name="agentTypeID">The ID to look for.</param>
+      <returns>
+        <para>The name associated with the ID found.</para>
+      </returns>
+    </member>
+    <member name="T:UnityEngine.AI.NavMesh.OnNavMeshPreUpdate">
+      <summary>
+        <para>A delegate which can be used to register callback methods to be invoked before the NavMesh system updates.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.Raycast(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.AI.NavMeshHit&amp;,System.Int32)">
+      <summary>
+        <para>Trace a line between two points on the NavMesh.</para>
+      </summary>
+      <param name="sourcePosition">The origin of the ray.</param>
+      <param name="targetPosition">The end of the ray.</param>
+      <param name="hit">Holds the properties of the ray cast resulting location.</param>
+      <param name="areaMask">A bitfield mask specifying which NavMesh areas can be passed when tracing the ray.</param>
+      <returns>
+        <para>True if the ray is terminated before reaching target position. Otherwise returns false.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.Raycast(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.AI.NavMeshHit&amp;,UnityEngine.AI.NavMeshQueryFilter)">
+      <summary>
+        <para>Traces a line between two positions on the NavMesh, subject to the constraints defined by the filter argument.</para>
+      </summary>
+      <param name="sourcePosition">The origin of the ray.</param>
+      <param name="targetPosition">The end of the ray.</param>
+      <param name="hit">Holds the properties of the ray cast resulting location.</param>
+      <param name="filter">A filter specifying which NavMesh areas can be passed when tracing the ray.</param>
+      <returns>
+        <para>True if the ray is terminated before reaching target position. Otherwise returns false.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.RemoveLink(UnityEngine.AI.NavMeshLinkInstance)">
+      <summary>
+        <para>Removes a link from the NavMesh.</para>
+      </summary>
+      <param name="handle">The instance of a link to remove.</param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.RemoveNavMeshData(UnityEngine.AI.NavMeshDataInstance)">
+      <summary>
+        <para>Removes the specified NavMeshDataInstance from the game, making it unavailable for agents and queries.</para>
+      </summary>
+      <param name="handle">The instance of a NavMesh to remove.</param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.RemoveSettings(System.Int32)">
+      <summary>
+        <para>Removes the build settings matching the agent type ID.</para>
+      </summary>
+      <param name="agentTypeID">The ID of the entry to remove.</param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.SamplePosition(UnityEngine.Vector3,UnityEngine.AI.NavMeshHit&amp;,System.Single,System.Int32)">
+      <summary>
+        <para>Finds the closest point on NavMesh within specified range.</para>
+      </summary>
+      <param name="sourcePosition">The origin of the sample query.</param>
+      <param name="hit">Holds the properties of the resulting location.</param>
+      <param name="maxDistance">Sample within this distance from sourcePosition.</param>
+      <param name="areaMask">A mask specifying which NavMesh areas are allowed when finding the nearest point.</param>
+      <returns>
+        <para>True if a nearest point is found.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.SamplePosition(UnityEngine.Vector3,UnityEngine.AI.NavMeshHit&amp;,System.Single,UnityEngine.AI.NavMeshQueryFilter)">
+      <summary>
+        <para>Samples the position closest to sourcePosition - on any NavMesh built for the agent type specified by the filter.</para>
+      </summary>
+      <param name="sourcePosition">The origin of the sample query.</param>
+      <param name="hit">Holds the properties of the resulting location.</param>
+      <param name="maxDistance">Sample within this distance from sourcePosition.</param>
+      <param name="filter">A filter specifying which NavMesh areas are allowed when finding the nearest point.</param>
+      <returns>
+        <para>True if a nearest point is found.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.SetAreaCost(System.Int32,System.Single)">
+      <summary>
+        <para>Sets the cost for finding path over geometry of the area type on all agents.</para>
+      </summary>
+      <param name="areaIndex">Index of the area to set.</param>
+      <param name="cost">New cost.</param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMesh.SetLayerCost(System.Int32,System.Single)">
+      <summary>
+        <para>Sets the cost for traversing over geometry of the layer type on all agents.</para>
+      </summary>
+      <param name="layer"></param>
+      <param name="cost"></param>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshAgent">
+      <summary>
+        <para>Navigation mesh agent.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.acceleration">
+      <summary>
+        <para>The maximum acceleration of an agent as it follows a path, given in units / sec^2.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.agentTypeID">
+      <summary>
+        <para>The type ID for the agent.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.angularSpeed">
+      <summary>
+        <para>Maximum turning speed in (deg/s) while following a path.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.areaMask">
+      <summary>
+        <para>Specifies which NavMesh areas are passable. Changing areaMask will make the path stale (see isPathStale).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.autoBraking">
+      <summary>
+        <para>Should the agent brake automatically to avoid overshooting the destination point?</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.autoRepath">
+      <summary>
+        <para>Should the agent attempt to acquire a new path if the existing path becomes invalid?</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.autoTraverseOffMeshLink">
+      <summary>
+        <para>Should the agent move across OffMeshLinks automatically?</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.avoidancePriority">
+      <summary>
+        <para>The avoidance priority level.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.baseOffset">
+      <summary>
+        <para>The relative vertical displacement of the owning GameObject.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.currentOffMeshLinkData">
+      <summary>
+        <para>The current OffMeshLinkData.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.desiredVelocity">
+      <summary>
+        <para>The desired velocity of the agent including any potential contribution from avoidance. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.destination">
+      <summary>
+        <para>Gets or attempts to set the destination of the agent in world-space units.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.hasPath">
+      <summary>
+        <para>Does the agent currently have a path? (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.height">
+      <summary>
+        <para>The height of the agent for purposes of passing under obstacles, etc.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.isOnNavMesh">
+      <summary>
+        <para>Is the agent currently bound to the navmesh? (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.isOnOffMeshLink">
+      <summary>
+        <para>Is the agent currently positioned on an OffMeshLink? (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.isPathStale">
+      <summary>
+        <para>Is the current path stale. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.isStopped">
+      <summary>
+        <para>This property holds the stop or resume condition of the NavMesh agent.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.navMeshOwner">
+      <summary>
+        <para>Returns the owning object of the NavMesh the agent is currently placed on (Read Only).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.nextOffMeshLinkData">
+      <summary>
+        <para>The next OffMeshLinkData on the current path.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.nextPosition">
+      <summary>
+        <para>Gets or sets the simulation position of the navmesh agent.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.obstacleAvoidanceType">
+      <summary>
+        <para>The level of quality of avoidance.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.path">
+      <summary>
+        <para>Property to get and set the current path.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.pathPending">
+      <summary>
+        <para>Is a path in the process of being computed but not yet ready? (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.pathStatus">
+      <summary>
+        <para>The status of the current path (complete, partial or invalid).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.radius">
+      <summary>
+        <para>The avoidance radius for the agent.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.remainingDistance">
+      <summary>
+        <para>The distance between the agent's position and the destination on the current path. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.speed">
+      <summary>
+        <para>Maximum movement speed when following a path.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.steeringTarget">
+      <summary>
+        <para>Get the current steering target along the path. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.stoppingDistance">
+      <summary>
+        <para>Stop within this distance from the target position.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.updatePosition">
+      <summary>
+        <para>Gets or sets whether the transform position is synchronized with the simulated agent position. The default value is true.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.updateRotation">
+      <summary>
+        <para>Should the agent update the transform orientation?</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.updateUpAxis">
+      <summary>
+        <para>Allows you to specify whether the agent should be aligned to the up-axis of the NavMesh or link that it is placed on.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.velocity">
+      <summary>
+        <para>Access the current velocity of the NavMeshAgent component, or set a velocity to control the agent manually.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshAgent.walkableMask">
+      <summary>
+        <para>Specifies which NavMesh layers are passable (bitfield). Changing walkableMask will make the path stale (see isPathStale).</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.ActivateCurrentOffMeshLink(System.Boolean)">
+      <summary>
+        <para>Enables or disables the current off-mesh link.</para>
+      </summary>
+      <param name="activated">Is the link activated?</param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.CalculatePath(UnityEngine.Vector3,UnityEngine.AI.NavMeshPath)">
+      <summary>
+        <para>Calculate a path to a specified point and store the resulting path.</para>
+      </summary>
+      <param name="targetPosition">The final position of the path requested.</param>
+      <param name="path">The resulting path.</param>
+      <returns>
+        <para>True if a path is found.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.CompleteOffMeshLink">
+      <summary>
+        <para>Completes the movement on the current OffMeshLink.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.FindClosestEdge(UnityEngine.AI.NavMeshHit&amp;)">
+      <summary>
+        <para>Locate the closest NavMesh edge.</para>
+      </summary>
+      <param name="hit">Holds the properties of the resulting location.</param>
+      <returns>
+        <para>True if a nearest edge is found.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.GetAreaCost(System.Int32)">
+      <summary>
+        <para>Gets the cost for path calculation when crossing area of a particular type.</para>
+      </summary>
+      <param name="areaIndex">Area Index.</param>
+      <returns>
+        <para>Current cost for specified area index.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.GetLayerCost(System.Int32)">
+      <summary>
+        <para>Gets the cost for crossing ground of a particular type.</para>
+      </summary>
+      <param name="layer">Layer index.</param>
+      <returns>
+        <para>Current cost of specified layer.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.Move(UnityEngine.Vector3)">
+      <summary>
+        <para>Apply relative movement to current position.</para>
+      </summary>
+      <param name="offset">The relative movement vector.</param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.Raycast(UnityEngine.Vector3,UnityEngine.AI.NavMeshHit&amp;)">
+      <summary>
+        <para>Trace a straight path towards a target postion in the NavMesh without moving the agent.</para>
+      </summary>
+      <param name="targetPosition">The desired end position of movement.</param>
+      <param name="hit">Properties of the obstacle detected by the ray (if any).</param>
+      <returns>
+        <para>True if there is an obstacle between the agent and the target position, otherwise false.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.ResetPath">
+      <summary>
+        <para>Clears the current path.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.Resume">
+      <summary>
+        <para>Resumes the movement along the current path after a pause.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.SamplePathPosition(System.Int32,System.Single,UnityEngine.AI.NavMeshHit&amp;)">
+      <summary>
+        <para>Sample a position along the current path.</para>
+      </summary>
+      <param name="areaMask">A bitfield mask specifying which NavMesh areas can be passed when tracing the path.</param>
+      <param name="maxDistance">Terminate scanning the path at this distance.</param>
+      <param name="hit">Holds the properties of the resulting location.</param>
+      <returns>
+        <para>True if terminated before reaching the position at maxDistance, false otherwise.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.SetAreaCost(System.Int32,System.Single)">
+      <summary>
+        <para>Sets the cost for traversing over areas of the area type.</para>
+      </summary>
+      <param name="areaIndex">Area cost.</param>
+      <param name="areaCost">New cost for the specified area index.</param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.SetDestination(UnityEngine.Vector3)">
+      <summary>
+        <para>Sets or updates the destination thus triggering the calculation for a new path.</para>
+      </summary>
+      <param name="target">The target point to navigate to.</param>
+      <returns>
+        <para>True if the destination was requested successfully, otherwise false.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.SetLayerCost(System.Int32,System.Single)">
+      <summary>
+        <para>Sets the cost for traversing over geometry of the layer type.</para>
+      </summary>
+      <param name="layer">Layer index.</param>
+      <param name="cost">New cost for the specified layer.</param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.SetPath(UnityEngine.AI.NavMeshPath)">
+      <summary>
+        <para>Assign a new path to this agent.</para>
+      </summary>
+      <param name="path">New path to follow.</param>
+      <returns>
+        <para>True if the path is succesfully assigned.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.Stop">
+      <summary>
+        <para>Stop movement of this agent along its current path.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshAgent.Warp(UnityEngine.Vector3)">
+      <summary>
+        <para>Warps agent to the provided position.</para>
+      </summary>
+      <param name="newPosition">New position to warp the agent to.</param>
+      <returns>
+        <para>True if agent is successfully warped, otherwise false.</para>
+      </returns>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshBuilder">
+      <summary>
+        <para>Navigation mesh builder interface.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshBuilder.BuildNavMeshData(UnityEngine.AI.NavMeshBuildSettings,System.Collections.Generic.List`1&lt;UnityEngine.AI.NavMeshBuildSource&gt;,UnityEngine.Bounds,UnityEngine.Vector3,UnityEngine.Quaternion)">
+      <summary>
+        <para>Builds a NavMesh data object from the provided input sources.</para>
+      </summary>
+      <param name="buildSettings">Settings for the bake process, see NavMeshBuildSettings.</param>
+      <param name="sources">List of input geometry used for baking, they describe the surfaces to walk on or obstacles to avoid.</param>
+      <param name="localBounds">Bounding box relative to position and rotation which describes the volume where the NavMesh should be built. Empty bounds is treated as no bounds, i.e. the NavMesh will cover all the inputs.</param>
+      <param name="position">Center of the NavMeshData. This specifies the origin for the NavMesh tiles (See Also: NavMeshBuildSettings.tileSize).</param>
+      <param name="rotation">Orientation of the NavMeshData, you can use this to generate NavMesh with an arbitrary up-vector – e.g. for walkable vertical surfaces.</param>
+      <returns>
+        <para>Returns a newly built NavMeshData, or null if the NavMeshData was empty or an error occurred.
+The newly built NavMeshData, or null if the NavMeshData was empty or an error occurred.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshBuilder.Cancel(UnityEngine.AI.NavMeshData)">
+      <summary>
+        <para>Cancels an asynchronous update of the specified NavMesh data. See Also: UpdateNavMeshDataAsync.</para>
+      </summary>
+      <param name="data">The data associated with asynchronous updating.</param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshBuilder.CollectSources(UnityEngine.Bounds,System.Int32,UnityEngine.AI.NavMeshCollectGeometry,System.Int32,System.Collections.Generic.List`1&lt;UnityEngine.AI.NavMeshBuildMarkup&gt;,System.Collections.Generic.List`1&lt;UnityEngine.AI.NavMeshBuildSource&gt;)">
+      <summary>
+        <para>Collects renderers or physics colliders, and terrains within a volume.</para>
+      </summary>
+      <param name="includedWorldBounds">The queried objects must overlap these bounds to be included in the results.</param>
+      <param name="includedLayerMask">Specifies which layers are included in the query.</param>
+      <param name="geometry">Which type of geometry to collect - e.g. physics colliders.</param>
+      <param name="defaultArea">Area type to assign to results, unless modified by NavMeshMarkup.</param>
+      <param name="markups">List of markups which allows finer control over how objects are collected.</param>
+      <param name="results">List where results are stored, the list is cleared at the beginning of the call.</param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshBuilder.CollectSources(UnityEngine.Transform,System.Int32,UnityEngine.AI.NavMeshCollectGeometry,System.Int32,System.Collections.Generic.List`1&lt;UnityEngine.AI.NavMeshBuildMarkup&gt;,System.Collections.Generic.List`1&lt;UnityEngine.AI.NavMeshBuildSource&gt;)">
+      <summary>
+        <para>Collects renderers or physics colliders, and terrains within a transform hierarchy.</para>
+      </summary>
+      <param name="root">If not null, consider only root and its children in the query; if null, includes everything loaded.</param>
+      <param name="includedLayerMask">Specifies which layers are included in the query.</param>
+      <param name="geometry">Which type of geometry to collect - e.g. physics colliders.</param>
+      <param name="defaultArea">Area type to assign to results, unless modified by NavMeshMarkup.</param>
+      <param name="markups">List of markups which allows finer control over how objects are collected.</param>
+      <param name="results">List where results are stored, the list is cleared at the beginning of the call.</param>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshBuilder.UpdateNavMeshData(UnityEngine.AI.NavMeshData,UnityEngine.AI.NavMeshBuildSettings,System.Collections.Generic.List`1&lt;UnityEngine.AI.NavMeshBuildSource&gt;,UnityEngine.Bounds)">
+      <summary>
+        <para>Incrementally updates the NavMeshData based on the sources.</para>
+      </summary>
+      <param name="data">The NavMeshData to update.</param>
+      <param name="buildSettings">The build settings which is used to update the NavMeshData. The build settings is also hashed along with the data, so changing settings will cause a full rebuild.</param>
+      <param name="sources">List of input geometry used for baking, they describe the surfaces to walk on or obstacles to avoid.</param>
+      <param name="localBounds">Bounding box relative to position and rotation which describes the volume where the NavMesh should be built. Empty bounds is treated as no-bounds, that is, the NavMesh will cover all the inputs.</param>
+      <returns>
+        <para>Returns true if the update was successful.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshBuilder.UpdateNavMeshDataAsync(UnityEngine.AI.NavMeshData,UnityEngine.AI.NavMeshBuildSettings,System.Collections.Generic.List`1&lt;UnityEngine.AI.NavMeshBuildSource&gt;,UnityEngine.Bounds)">
+      <summary>
+        <para>Asynchronously and incrementally updates the NavMeshData based on the sources.</para>
+      </summary>
+      <param name="data">The NavMeshData to update.</param>
+      <param name="buildSettings">The build settings which is used to update the NavMeshData. The build settings is also hashed along with the data, so changing settings will likely to cause full rebuild.</param>
+      <param name="sources">List of input geometry used for baking, they describe the surfaces to walk on or obstacles to avoid.</param>
+      <param name="localBounds">Bounding box relative to position and rotation which describes to volume where the NavMesh should be built. Empty bounds is treated as no-bounds, that is, the NavMesh will cover all the inputs.</param>
+      <returns>
+        <para>Can be used to check the progress of the update.</para>
+      </returns>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshBuildMarkup">
+      <summary>
+        <para>The NavMesh build markup allows you to control how certain objects are treated during the NavMesh build process, specifically when collecting sources for building.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildMarkup.area">
+      <summary>
+        <para>The area type to use when override area is enabled.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildMarkup.ignoreFromBuild">
+      <summary>
+        <para>Use this to specify whether the GameObject and its children should be ignored.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildMarkup.overrideArea">
+      <summary>
+        <para>Use this to specify whether the area type of the GameObject and its children should be overridden by the area type specified in this struct.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildMarkup.root">
+      <summary>
+        <para>Use this to specify which GameObject (including the GameObject’s children) the markup should be applied to.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshBuildSettings">
+      <summary>
+        <para>The NavMeshBuildSettings struct allows you to specify a collection of settings which describe the dimensions and limitations of a particular agent type.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSettings.agentClimb">
+      <summary>
+        <para>The maximum vertical step size an agent can take.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSettings.agentHeight">
+      <summary>
+        <para>The height of the agent for baking in world units.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSettings.agentRadius">
+      <summary>
+        <para>The radius of the agent for baking in world units.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSettings.agentSlope">
+      <summary>
+        <para>The maximum slope angle which is walkable (angle in degrees).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSettings.agentTypeID">
+      <summary>
+        <para>The agent type ID the NavMesh will be baked for.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSettings.minRegionArea">
+      <summary>
+        <para>The approximate minimum area of individual NavMesh regions.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSettings.overrideTileSize">
+      <summary>
+        <para>Enables overriding the default tile size. See Also: tileSize.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSettings.overrideVoxelSize">
+      <summary>
+        <para>Enables overriding the default voxel size. See Also: voxelSize.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSettings.tileSize">
+      <summary>
+        <para>Sets the tile size in voxel units.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSettings.voxelSize">
+      <summary>
+        <para>Sets the voxel size in world length units.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshBuildSettings.ValidationReport(UnityEngine.Bounds)">
+      <summary>
+        <para>Validates the properties of NavMeshBuildSettings.</para>
+      </summary>
+      <param name="buildBounds">Describes the volume to build NavMesh for.</param>
+      <returns>
+        <para>The list of violated constraints.</para>
+      </returns>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshBuildSource">
+      <summary>
+        <para>The input to the NavMesh builder is a list of NavMesh build sources.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSource.area">
+      <summary>
+        <para>Describes the area type of the NavMesh surface for this object.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSource.component">
+      <summary>
+        <para>Points to the owning component - if available, otherwise null.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSource.shape">
+      <summary>
+        <para>The type of the shape this source describes. See Also: NavMeshBuildSourceShape.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSource.size">
+      <summary>
+        <para>Describes the dimensions of the shape.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSource.sourceObject">
+      <summary>
+        <para>Describes the object referenced for Mesh and Terrain types of input sources.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshBuildSource.transform">
+      <summary>
+        <para>Describes the local to world transformation matrix of the build source. That is, position and orientation and scale of the shape.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshBuildSourceShape">
+      <summary>
+        <para>Used with NavMeshBuildSource to define the shape for building NavMesh.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.AI.NavMeshBuildSourceShape.Box">
+      <summary>
+        <para>Describes a box primitive for use with NavMeshBuildSource.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.AI.NavMeshBuildSourceShape.Capsule">
+      <summary>
+        <para>Describes a capsule primitive for use with NavMeshBuildSource.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.AI.NavMeshBuildSourceShape.Mesh">
+      <summary>
+        <para>Describes a Mesh source for use with NavMeshBuildSource.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.AI.NavMeshBuildSourceShape.ModifierBox">
+      <summary>
+        <para>Describes a ModifierBox source for use with NavMeshBuildSource.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.AI.NavMeshBuildSourceShape.Sphere">
+      <summary>
+        <para>Describes a sphere primitive for use with NavMeshBuildSource.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.AI.NavMeshBuildSourceShape.Terrain">
+      <summary>
+        <para>Describes a TerrainData source for use with NavMeshBuildSource.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshCollectGeometry">
+      <summary>
+        <para>Used for specifying the type of geometry to collect. Used with NavMeshBuilder.CollectSources.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.AI.NavMeshCollectGeometry.PhysicsColliders">
+      <summary>
+        <para>Collect geometry from the 3D physics collision representation.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.AI.NavMeshCollectGeometry.RenderMeshes">
+      <summary>
+        <para>Collect meshes form the rendered geometry.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshData">
+      <summary>
+        <para>Contains and represents NavMesh data.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshData.position">
+      <summary>
+        <para>Gets or sets the world space position of the NavMesh data.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshData.rotation">
+      <summary>
+        <para>Gets or sets the orientation of the NavMesh data.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshData.sourceBounds">
+      <summary>
+        <para>Returns the bounding volume of the input geometry used to build this NavMesh (Read Only).</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshData.#ctor">
+      <summary>
+        <para>Constructs a new object for representing a NavMesh for the default agent type.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshData.#ctor(System.Int32)">
+      <summary>
+        <para>Constructs a new object representing a NavMesh for the specified agent type.</para>
+      </summary>
+      <param name="agentTypeID">The agent type ID to create a NavMesh for.</param>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshDataInstance">
+      <summary>
+        <para>The instance is returned when adding NavMesh data.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshDataInstance.owner">
+      <summary>
+        <para>Get or set the owning Object.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshDataInstance.valid">
+      <summary>
+        <para>True if the NavMesh data is added to the navigation system - otherwise false (Read Only).</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshDataInstance.Remove">
+      <summary>
+        <para>Removes this instance from the NavMesh system.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshHit">
+      <summary>
+        <para>Result information for NavMesh queries.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshHit.distance">
+      <summary>
+        <para>Distance to the point of hit.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshHit.hit">
+      <summary>
+        <para>Flag set when hit.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshHit.mask">
+      <summary>
+        <para>Mask specifying NavMesh area at point of hit.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshHit.normal">
+      <summary>
+        <para>Normal at the point of hit.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshHit.position">
+      <summary>
+        <para>Position of hit.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshLinkData">
+      <summary>
+        <para>Used for runtime manipulation of links connecting polygons of the NavMesh.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshLinkData.agentTypeID">
+      <summary>
+        <para>Specifies which agent type this link is available for.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshLinkData.area">
+      <summary>
+        <para>Area type of the link.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshLinkData.bidirectional">
+      <summary>
+        <para>If true, the link can be traversed in both directions, otherwise only from start to end position.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshLinkData.costModifier">
+      <summary>
+        <para>If positive, overrides the pathfinder cost to traverse the link.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshLinkData.endPosition">
+      <summary>
+        <para>End position of the link.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshLinkData.startPosition">
+      <summary>
+        <para>Start position of the link.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshLinkData.width">
+      <summary>
+        <para>If positive, the link will be rectangle aligned along the line from start to end.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshLinkInstance">
+      <summary>
+        <para>An instance representing a link available for pathfinding.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshLinkInstance.owner">
+      <summary>
+        <para>Get or set the owning Object.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshLinkInstance.valid">
+      <summary>
+        <para>True if the NavMesh link is added to the navigation system - otherwise false (Read Only).</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshLinkInstance.Remove">
+      <summary>
+        <para>Removes this instance from the game.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshObstacle">
+      <summary>
+        <para>An obstacle for NavMeshAgents to avoid.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshObstacle.carveOnlyStationary">
+      <summary>
+        <para>Should this obstacle be carved when it is constantly moving?</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshObstacle.carving">
+      <summary>
+        <para>Should this obstacle make a cut-out in the navmesh.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshObstacle.carvingMoveThreshold">
+      <summary>
+        <para>Threshold distance for updating a moving carved hole (when carving is enabled).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshObstacle.carvingTimeToStationary">
+      <summary>
+        <para>Time to wait until obstacle is treated as stationary (when carving and carveOnlyStationary are enabled).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshObstacle.center">
+      <summary>
+        <para>The center of the obstacle, measured in the object's local space.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshObstacle.height">
+      <summary>
+        <para>Height of the obstacle's cylinder shape.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshObstacle.radius">
+      <summary>
+        <para>Radius of the obstacle's capsule shape.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshObstacle.shape">
+      <summary>
+        <para>The shape of the obstacle.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshObstacle.size">
+      <summary>
+        <para>The size of the obstacle, measured in the object's local space.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshObstacle.velocity">
+      <summary>
+        <para>Velocity at which the obstacle moves around the NavMesh.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshObstacleShape">
+      <summary>
+        <para>Shape of the obstacle.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.AI.NavMeshObstacleShape.Box">
+      <summary>
+        <para>Box shaped obstacle.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.AI.NavMeshObstacleShape.Capsule">
+      <summary>
+        <para>Capsule shaped obstacle.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.AI.NavMeshPath">
+      <summary>
+        <para>A path as calculated by the navigation system.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshPath.corners">
+      <summary>
+        <para>Corner points of the path. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.AI.NavMeshPath.status">
+      <summary>
+        <para>Status of the path. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshPath.ClearCorners">
+      <summary>
+        <para>Erase all corner points from path.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshPath.#ctor">
+      <summary>
+        <para>NavMeshPath constructor.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.AI.NavMeshPath.GetCornersNonAlloc(UnityEngine.Vector3[])">
+      <summary>
+        <para>Calculate the corners for the path.</para>
+      </summary>
+      <param name="results">Array to store path corners.</param>
+>>>>>>> origin/master
       <returns>
         <para>The platform specific game identifier.</para>
       </returns>
@@ -3124,12 +4206,12 @@ If relativePath is empty it refers to the game object the animation clip is atta
     </member>
     <member name="P:UnityEngine.AnimatorControllerParameter.defaultFloat">
       <summary>
-        <para>The default bool value for the parameter.</para>
+        <para>The default float value for the parameter.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.AnimatorControllerParameter.defaultInt">
       <summary>
-        <para>The default bool value for the parameter.</para>
+        <para>The default int value for the parameter.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.AnimatorControllerParameter.name">
@@ -17787,7 +18869,7 @@ GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.</param>
     </member>
     <member name="M:UnityEngine.GUILayout.Button(UnityEngine.Texture,UnityEngine.GUILayoutOption[])">
       <summary>
-        <para>Make a single press button. The user clicks them and something happens immediately.</para>
+        <para>Make a single press button.</para>
       </summary>
       <param name="text">Text to display on the button.</param>
       <param name="image">Texture to display on the button.</param>
@@ -17802,7 +18884,7 @@ GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.</param>
     </member>
     <member name="M:UnityEngine.GUILayout.Button(System.String,UnityEngine.GUILayoutOption[])">
       <summary>
-        <para>Make a single press button. The user clicks them and something happens immediately.</para>
+        <para>Make a single press button.</para>
       </summary>
       <param name="text">Text to display on the button.</param>
       <param name="image">Texture to display on the button.</param>
@@ -17817,7 +18899,7 @@ GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.</param>
     </member>
     <member name="M:UnityEngine.GUILayout.Button(UnityEngine.GUIContent,UnityEngine.GUILayoutOption[])">
       <summary>
-        <para>Make a single press button. The user clicks them and something happens immediately.</para>
+        <para>Make a single press button.</para>
       </summary>
       <param name="text">Text to display on the button.</param>
       <param name="image">Texture to display on the button.</param>
@@ -17832,7 +18914,7 @@ GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.</param>
     </member>
     <member name="M:UnityEngine.GUILayout.Button(UnityEngine.Texture,UnityEngine.GUIStyle,UnityEngine.GUILayoutOption[])">
       <summary>
-        <para>Make a single press button. The user clicks them and something happens immediately.</para>
+        <para>Make a single press button.</para>
       </summary>
       <param name="text">Text to display on the button.</param>
       <param name="image">Texture to display on the button.</param>
@@ -17847,7 +18929,7 @@ GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.</param>
     </member>
     <member name="M:UnityEngine.GUILayout.Button(System.String,UnityEngine.GUIStyle,UnityEngine.GUILayoutOption[])">
       <summary>
-        <para>Make a single press button. The user clicks them and something happens immediately.</para>
+        <para>Make a single press button.</para>
       </summary>
       <param name="text">Text to display on the button.</param>
       <param name="image">Texture to display on the button.</param>
@@ -17862,7 +18944,7 @@ GUILayout.MaxHeight, GUILayout.ExpandWidth, GUILayout.ExpandHeight.</param>
     </member>
     <member name="M:UnityEngine.GUILayout.Button(UnityEngine.GUIContent,UnityEngine.GUIStyle,UnityEngine.GUILayoutOption[])">
       <summary>
-        <para>Make a single press button. The user clicks them and something happens immediately.</para>
+        <para>Make a single press button.</para>
       </summary>
       <param name="text">Text to display on the button.</param>
       <param name="image">Texture to display on the button.</param>
@@ -25531,6 +26613,19 @@ Only usable on Android, Windows Phone or Windows Tablets.</para>
         <para>The main material's color.</para>
       </summary>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="P:UnityEngine.Material.doubleSidedGI">
+      <summary>
+        <para>Gets and sets whether the Double Sided Global Illumination setting is enabled for this material.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Material.enableInstancing">
+      <summary>
+        <para>Gets and sets whether GPU instancing is enabled for this material.</para>
+      </summary>
+    </member>
+>>>>>>> origin/master
     <member name="P:UnityEngine.Material.globalIlluminationFlags">
       <summary>
         <para>Defines how the material should interact with lightmaps and lightprobes.</para>
@@ -30050,6 +31145,11 @@ Topology is used to define how many client can connect, and how many messages sh
     <member name="P:UnityEngine.Networking.UnityWebRequest.responseCode">
       <summary>
         <para>The numeric HTTP response code returned by the server, such as 200, 404 or 500. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Networking.UnityWebRequest.timeout">
+      <summary>
+        <para>Sets UnityWebRequest to attempt to abort after the number of seconds in timeout have passed.</para>
       </summary>
     </member>
     <member name="P:UnityEngine.Networking.UnityWebRequest.uploadedBytes">
@@ -39878,14 +40978,14 @@ Updating a probe's cubemap is a costly operation. Unity needs to render the enti
     </member>
     <member name="M:UnityEngine.RenderTexture.DiscardContents">
       <summary>
-        <para>Discards the contents of the RenderTexture.</para>
+        <para>Hint the GPU driver that the contents of the RenderTexture will not be used.</para>
       </summary>
       <param name="discardColor">Should the colour buffer be discarded?</param>
       <param name="discardDepth">Should the depth buffer be discarded?</param>
     </member>
     <member name="M:UnityEngine.RenderTexture.DiscardContents(System.Boolean,System.Boolean)">
       <summary>
-        <para>Discards the contents of the RenderTexture.</para>
+        <para>Hint the GPU driver that the contents of the RenderTexture will not be used.</para>
       </summary>
       <param name="discardColor">Should the colour buffer be discarded?</param>
       <param name="discardDepth">Should the depth buffer be discarded?</param>
@@ -40004,6 +41104,19 @@ Updating a probe's cubemap is a costly operation. Unity needs to render the enti
         <para>Scalar (R) render texture format, 32 bit floating point.</para>
       </summary>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="F:UnityEngine.RenderTextureFormat.RG16">
+      <summary>
+        <para>Two channel (RG) render texture format, 8 bits per channel.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.RenderTextureFormat.RG32">
+      <summary>
+        <para>Two color (RG) render texture format, 16 bits per channel, fixed point, unsigned normalized.</para>
+      </summary>
+    </member>
+>>>>>>> origin/master
     <member name="F:UnityEngine.RenderTextureFormat.RGB111110Float">
       <summary>
         <para>Color render texture format. R and G channels are 11 bit floating point, B channel is 10 bit floating point.</para>
@@ -40012,6 +41125,11 @@ Updating a probe's cubemap is a costly operation. Unity needs to render the enti
     <member name="F:UnityEngine.RenderTextureFormat.RGB565">
       <summary>
         <para>Color render texture format.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.RenderTextureFormat.RGBAUShort">
+      <summary>
+        <para>Four channel (RGBA) render texture format, 16 bit unsigned integer per channel.</para>
       </summary>
     </member>
     <member name="F:UnityEngine.RenderTextureFormat.RGFloat">
@@ -40077,7 +41195,7 @@ Updating a probe's cubemap is a costly operation. Unity needs to render the enti
     </member>
     <member name="M:UnityEngine.RequireComponent.#ctor(System.Type,System.Type)">
       <summary>
-        <para>Require a two components.</para>
+        <para>Require two components.</para>
       </summary>
       <param name="requiredComponent"></param>
       <param name="requiredComponent2"></param>
@@ -45806,9 +46924,19 @@ Returns NULL if there is no associated alpha texture for the source sprite. This
         <para>A 16 bit color texture format that only has a red channel.</para>
       </summary>
     </member>
+    <member name="F:UnityEngine.TextureFormat.R8">
+      <summary>
+        <para>Scalar (R) render texture format, 8 bit fixed point.</para>
+      </summary>
+    </member>
     <member name="F:UnityEngine.TextureFormat.RFloat">
       <summary>
         <para>Scalar (R) texture format, 32 bit floating point.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.TextureFormat.RG16">
+      <summary>
+        <para>Two color (RG) texture format, 8-bits per channel.</para>
       </summary>
     </member>
     <member name="F:UnityEngine.TextureFormat.RGB24">
@@ -48815,6 +49943,534 @@ Useful for restarting a trail from a new position.</para>
         <para>Text will be clipped when reaching the vertical boundary.</para>
       </summary>
     </member>
+<<<<<<< HEAD
+=======
+    <member name="T:UnityEngine.Video.VideoAspectRatio">
+      <summary>
+        <para>Methods used to fit a video in the target area.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoAspectRatio.FitHorizontally">
+      <summary>
+        <para>Resize proportionally so that width fits the target area, cropping or adding black bars above and below if needed.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoAspectRatio.FitInside">
+      <summary>
+        <para>Resize proportionally so that content fits the target area, adding black bars if needed.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoAspectRatio.FitOutside">
+      <summary>
+        <para>Resize proportionally so that content fits the target area, cropping if needed.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoAspectRatio.FitVertically">
+      <summary>
+        <para>Resize proportionally so that height fits the target area, cropping or adding black bars on each side if needed.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoAspectRatio.NoScaling">
+      <summary>
+        <para>Preserve the pixel size without adjusting for target area.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoAspectRatio.Stretch">
+      <summary>
+        <para>Resize non-proportionally to fit the target area.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Video.VideoAudioOutputMode">
+      <summary>
+        <para>Places where the audio embedded in a video can be sent.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoAudioOutputMode.AudioSource">
+      <summary>
+        <para>Send the embedded audio into a specified AudioSource.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoAudioOutputMode.Direct">
+      <summary>
+        <para>Send the embedded audio direct to the platform's audio hardware.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoAudioOutputMode.None">
+      <summary>
+        <para>Disable the embedded audio.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Video.VideoClip">
+      <summary>
+        <para>A container for video data.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoClip.audioTrackCount">
+      <summary>
+        <para>Number of audio tracks in the clip.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoClip.frameCount">
+      <summary>
+        <para>The length of the VideoClip in frames. (Read Only).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoClip.frameRate">
+      <summary>
+        <para>The frame rate of the clip in frames/second. (Read Only).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoClip.height">
+      <summary>
+        <para>The height of the images in the video clip in pixels. (Read Only).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoClip.length">
+      <summary>
+        <para>The length of the video clip in seconds. (Read Only).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoClip.originalPath">
+      <summary>
+        <para>The video clip path in the project's assets. (Read Only).</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoClip.width">
+      <summary>
+        <para>The width of the images in the video clip in pixels. (Read Only).</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Video.VideoClip.GetAudioChannelCount(System.UInt16)">
+      <summary>
+        <para>The number of channels in the audio track.  E.g. 2 for a stereo track.</para>
+      </summary>
+      <param name="audioTrackIdx">Index of the audio queried audio track.</param>
+      <returns>
+        <para>The number of channels.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Video.VideoClip.GetAudioLanguage(System.UInt16)">
+      <summary>
+        <para>Get the audio track language.  Can be unknown.</para>
+      </summary>
+      <param name="audioTrackIdx">Index of the audio queried audio track.</param>
+      <returns>
+        <para>The abbreviated name of the language.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Video.VideoClip.GetAudioSampleRate(System.UInt16)">
+      <summary>
+        <para>Get the audio track sampling rate in Hertz.</para>
+      </summary>
+      <param name="audioTrackIdx">Index of the audio queried audio track.</param>
+      <returns>
+        <para>The sampling rate in Hertz.</para>
+      </returns>
+    </member>
+    <member name="T:UnityEngine.Video.VideoPlayer">
+      <summary>
+        <para>Plays video content onto a target.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.aspectRatio">
+      <summary>
+        <para>Defines how the video content will be stretched to fill the target area.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.audioOutputMode">
+      <summary>
+        <para>Destination for the audio embedded in the video.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.audioTrackCount">
+      <summary>
+        <para>Number of audio tracks found in the data source currently configured.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.canSetDirectAudioVolume">
+      <summary>
+        <para>Whether direct-output volume controls are supported for the current platform and video format. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.canSetPlaybackSpeed">
+      <summary>
+        <para>Whether the playback speed can be changed. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.canSetSkipOnDrop">
+      <summary>
+        <para>Determines whether the VideoPlayer skips frames to catch up with current time. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.canSetTime">
+      <summary>
+        <para>Whether current time can be changed using the time or timeFrames property. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.canSetTimeSource">
+      <summary>
+        <para>Whether the time source followed by the VideoPlayer can be changed. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.canStep">
+      <summary>
+        <para>Returns true if the VideoPlayer can step forward through the video content. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.clip">
+      <summary>
+        <para>The clip being played by the VideoPlayer.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.controlledAudioTrackCount">
+      <summary>
+        <para>Number of audio tracks that this VideoPlayer will take control of. The other ones will be silenced. A maximum of 64 tracks are allowed.
+The actual number of audio tracks cannot be known in advance when playing URLs, which is why this value is independent of the Video.VideoPlayer.audioTrackCount property.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.controlledAudioTrackMaxCount">
+      <summary>
+        <para>Maximum number of audio tracks that can be controlled.</para>
+      </summary>
+    </member>
+    <member name="?:UnityEngine.Video.VideoPlayer.errorReceived(UnityEngine.Video.VideoPlayer/ErrorEventHandler)">
+      <summary>
+        <para>Errors such as HTTP connection problems are reported through this callback.</para>
+      </summary>
+      <param name="value"></param>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.frame">
+      <summary>
+        <para>The frame index currently being displayed by the VideoPlayer.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.frameCount">
+      <summary>
+        <para>Number of frames in the current video content.</para>
+      </summary>
+    </member>
+    <member name="?:UnityEngine.Video.VideoPlayer.frameDropped(UnityEngine.Video.VideoPlayer/EventHandler)">
+      <summary>
+        <para>[NOT YET IMPLEMENTED] Invoked when the video decoder does not produce a frame as per the time source during playback.</para>
+      </summary>
+      <param name="value"></param>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.frameRate">
+      <summary>
+        <para>The frame rate of the clip or URL in frames/second. (Read Only).</para>
+      </summary>
+    </member>
+    <member name="?:UnityEngine.Video.VideoPlayer.frameReady(UnityEngine.Video.VideoPlayer/FrameReadyEventHandler)">
+      <summary>
+        <para>Invoked when a new frame is ready.</para>
+      </summary>
+      <param name="value"></param>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.isLooping">
+      <summary>
+        <para>Determines whether the VideoPlayer restarts from the beginning when it reaches the end of the clip.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.isPlaying">
+      <summary>
+        <para>Whether content is being played. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.isPrepared">
+      <summary>
+        <para>Whether the VideoPlayer has successfully prepared the content to be played. (Read Only)</para>
+      </summary>
+    </member>
+    <member name="?:UnityEngine.Video.VideoPlayer.loopPointReached(UnityEngine.Video.VideoPlayer/EventHandler)">
+      <summary>
+        <para>Invoked when the VideoPlayer reaches the end of the content to play.</para>
+      </summary>
+      <param name="value"></param>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.playbackSpeed">
+      <summary>
+        <para>Factor by which the basic playback rate will be multiplied.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.playOnAwake">
+      <summary>
+        <para>Whether the content will start playing back as soon as the component awakes.</para>
+      </summary>
+    </member>
+    <member name="?:UnityEngine.Video.VideoPlayer.prepareCompleted(UnityEngine.Video.VideoPlayer/EventHandler)">
+      <summary>
+        <para>Invoked when the VideoPlayer preparation is complete.</para>
+      </summary>
+      <param name="value"></param>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.renderMode">
+      <summary>
+        <para>Where the video content will be drawn.</para>
+      </summary>
+    </member>
+    <member name="?:UnityEngine.Video.VideoPlayer.seekCompleted(UnityEngine.Video.VideoPlayer/EventHandler)">
+      <summary>
+        <para>Invoke after a seek operation completes.</para>
+      </summary>
+      <param name="value"></param>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.sendFrameReadyEvents">
+      <summary>
+        <para>Enables the frameReady events.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.skipOnDrop">
+      <summary>
+        <para>Whether the VideoPlayer is allowed to skip frames to catch up with current time.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.source">
+      <summary>
+        <para>The source that the VideoPlayer uses for playback.</para>
+      </summary>
+    </member>
+    <member name="?:UnityEngine.Video.VideoPlayer.started(UnityEngine.Video.VideoPlayer/EventHandler)">
+      <summary>
+        <para>Invoked immediately after Play is called.</para>
+      </summary>
+      <param name="value"></param>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.targetCamera">
+      <summary>
+        <para>Camera component to draw to when Video.VideoPlayer.renderMode is set to either Video.VideoTarget.CameraBackPlane or Video.VideoTarget.CameraFrontPlane.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.targetCameraAlpha">
+      <summary>
+        <para>Overall transparency level of the target camera plane video.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.targetMaterialProperty">
+      <summary>
+        <para>Material texture property which is targeted when Video.VideoPlayer.renderMode is set to Video.VideoTarget.MaterialOverride.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.targetMaterialRenderer">
+      <summary>
+        <para>Renderer which is targeted when Video.VideoPlayer.renderMode is set to Video.VideoTarget.MaterialOverride</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.targetTexture">
+      <summary>
+        <para>RenderTexture to draw to when Video.VideoPlayer.renderMode is set to Video.VideoTarget.RenderTexture. For optimal performance, the dimensions of the RenderTexture should match those of the video media exactly.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.texture">
+      <summary>
+        <para>Internal texture in which video content is placed.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.time">
+      <summary>
+        <para>The VideoPlayer current time in seconds.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.timeSource">
+      <summary>
+        <para>[NOT YET IMPLEMENTED] The source used used by the VideoPlayer to derive its current time.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.url">
+      <summary>
+        <para>The file or HTTP URL that the VideoPlayer will read content from.</para>
+      </summary>
+    </member>
+    <member name="P:UnityEngine.Video.VideoPlayer.waitForFirstFrame">
+      <summary>
+        <para>Determines whether the VideoPlayer will wait for the first frame to be loaded into the texture before starting playback when Video.VideoPlayer.playOnAwake is on.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.EnableAudioTrack(System.UInt16,System.Boolean)">
+      <summary>
+        <para>Enable/disable audio track decoding. Only effective when the VideoPlayer is not currently playing.</para>
+      </summary>
+      <param name="trackIndex">Index of the audio track to enable/disable.</param>
+      <param name="enabled">True for enabling the track. False for disabling the track.</param>
+    </member>
+    <member name="T:UnityEngine.Video.VideoPlayer.ErrorEventHandler">
+      <summary>
+        <para>Delegate type for VideoPlayer events that contain an error message.</para>
+      </summary>
+      <param name="source">The VideoPlayer that is emitting the event.</param>
+      <param name="message">Message describing the error just encountered.</param>
+    </member>
+    <member name="T:UnityEngine.Video.VideoPlayer.EventHandler">
+      <summary>
+        <para>Delegate type for all parameter-less events emitted by VideoPlayers.</para>
+      </summary>
+      <param name="source">The VideoPlayer that is emitting the event.</param>
+    </member>
+    <member name="T:UnityEngine.Video.VideoPlayer.FrameReadyEventHandler">
+      <summary>
+        <para>Delegate type for VideoPlayer events that carry a frame number.</para>
+      </summary>
+      <param name="source">The VideoPlayer that is emitting the event.</param>
+      <param name="frameNum">The frame the VideoPlayer is now at.</param>
+      <param name="frameIdx"></param>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.GetAudioChannelCount(System.UInt16)">
+      <summary>
+        <para>The number of audio channels in the specified audio track.</para>
+      </summary>
+      <param name="trackIndex">Index for the audio track being queried.</param>
+      <returns>
+        <para>Number of audio channels.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.GetAudioLanguageCode(System.UInt16)">
+      <summary>
+        <para>Returns the language code, if any, for the specified track.</para>
+      </summary>
+      <param name="trackIndex">Index of the audio track to query.</param>
+      <returns>
+        <para>Language code.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.GetDirectAudioMute(System.UInt16)">
+      <summary>
+        <para>Get the direct-output audio mute status for the specified track.</para>
+      </summary>
+      <param name="trackIndex"></param>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.GetDirectAudioVolume(System.UInt16)">
+      <summary>
+        <para>Return the direct-output volume for specified track.</para>
+      </summary>
+      <param name="trackIndex">Track index for which the volume is queried.</param>
+      <returns>
+        <para>Volume, between 0 and 1.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.GetTargetAudioSource(System.UInt16)">
+      <summary>
+        <para>Gets the AudioSource that will receive audio samples for the specified track if Video.VideoPlayer.audioOutputMode is set to Video.VideoAudioOutputMode.AudioSource.</para>
+      </summary>
+      <param name="trackIndex">Index of the audio track for which the AudioSource is wanted.</param>
+      <returns>
+        <para>The source associated with the audio track.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.IsAudioTrackEnabled(System.UInt16)">
+      <summary>
+        <para>Returns whether decoding for the specified audio track is enabled. See Video.VideoPlayer.EnableAudioTrack for distinction with mute.</para>
+      </summary>
+      <param name="trackIndex">Index of the audio track being queried.</param>
+      <returns>
+        <para>True if decoding for the specified audio track is enabled.</para>
+      </returns>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.Pause">
+      <summary>
+        <para>Pauses the playback and leaves the current time intact.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.Play">
+      <summary>
+        <para>Starts playback.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.Prepare">
+      <summary>
+        <para>Initiates playback engine prepration.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.SetDirectAudioMute(System.UInt16,System.Boolean)">
+      <summary>
+        <para>Set the direct-output audio mute status for the specified track.</para>
+      </summary>
+      <param name="trackIndex">Track index for which the mute is set.</param>
+      <param name="mute">Mute on/off.</param>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.SetDirectAudioVolume(System.UInt16,System.Single)">
+      <summary>
+        <para>Set the direct-output audio volume for the specified track.</para>
+      </summary>
+      <param name="trackIndex">Track index for which the volume is set.</param>
+      <param name="volume">New volume, between 0 and 1.</param>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.SetTargetAudioSource(System.UInt16,UnityEngine.AudioSource)">
+      <summary>
+        <para>Sets the AudioSource that will receive audio samples for the specified track if this audio target is selected with Video.VideoPlayer.audioOutputMode.</para>
+      </summary>
+      <param name="trackIndex">Index of the audio track to associate with the specified AudioSource.</param>
+      <param name="source">AudioSource to associate with the audio track.</param>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.StepForward">
+      <summary>
+        <para>Advances the current time by one frame immediately.</para>
+      </summary>
+    </member>
+    <member name="M:UnityEngine.Video.VideoPlayer.Stop">
+      <summary>
+        <para>Pauses the playback and sets the current time to 0.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Video.VideoRenderMode">
+      <summary>
+        <para>Type of destination for the images read by a VideoPlayer.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoRenderMode.APIOnly">
+      <summary>
+        <para>Don't draw the video content anywhere, but still make it available via the VideoPlayer's texture property in the API.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoRenderMode.CameraFarPlane">
+      <summary>
+        <para>Draw video content behind a camera's scene.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoRenderMode.CameraNearPlane">
+      <summary>
+        <para>Draw video content in front of a camera's scene.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoRenderMode.MaterialOverride">
+      <summary>
+        <para>Draw the video content into a user-specified property of the current GameObject's material.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoRenderMode.RenderTexture">
+      <summary>
+        <para>Draw video content into a RenderTexture.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Video.VideoSource">
+      <summary>
+        <para>Source of the video content for a VideoPlayer.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoSource.Url">
+      <summary>
+        <para>Use the current URL as the video content source.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoSource.VideoClip">
+      <summary>
+        <para>Use the current clip as the video content source.</para>
+      </summary>
+    </member>
+    <member name="T:UnityEngine.Video.VideoTimeSource">
+      <summary>
+        <para>Time source followed by the Video.VideoPlayer when reading content.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoTimeSource.AudioDSPTimeSource">
+      <summary>
+        <para>The audio hardware clock.</para>
+      </summary>
+    </member>
+    <member name="F:UnityEngine.Video.VideoTimeSource.GameTimeSource">
+      <summary>
+        <para>The unscaled game time as defined by Time.realtimeSinceStartup.</para>
+      </summary>
+    </member>
+>>>>>>> origin/master
     <member name="T:UnityEngine.VR.InputTracking">
       <summary>
         <para>VR Input tracking data.</para>
