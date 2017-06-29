@@ -6,8 +6,11 @@ public class PlayerMovement : MonoBehaviour
 
     GameObject Player;
     Rigidbody2D PlayerRigid;
+    [SerializeField]
     float MoveSpeed = 5;
+    [SerializeField]
     float JumpDistance;
+    [SerializeField]
     float JumpHeight;
     float PrevMoveSpeed;
     float GravityY;
@@ -74,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && CanJump)
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
         {
             if (Fallen)
             {
@@ -86,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
             }
             Left = false;
         }
-        else if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && CanJump)
+        else if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)))
         {
             if (Fallen)
             {
@@ -127,6 +130,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 RectFall();
             }
+        }
+        if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A))
+        {
+            PlayerRigid.velocity = new Vector2(0, PlayerRigid.velocity.y);
         }
     }
 
@@ -242,9 +249,9 @@ public class PlayerMovement : MonoBehaviour
         CirCollider.enabled = false;
         RectCollider.offset = SquareOffset;
         RectCollider.size = SquareSize;
-        JumpDistance = 5;
-        JumpHeight = 4;
-        MoveSpeed = 5;
+        JumpDistance = 10;
+        JumpHeight = 6;
+        MoveSpeed = 15;
         IsSquare = true;
         IsRect = false;
     }
@@ -298,6 +305,7 @@ public class PlayerMovement : MonoBehaviour
         if (Col.gameObject.tag == "Ground")
         {
             CanJump = true;
+            PlayerRigid.velocity = new Vector2(0, PlayerRigid.velocity.y);
         }
         else if (Col.gameObject.tag == "Rectangle Changer")
         {
