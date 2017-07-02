@@ -14,6 +14,10 @@ public class MovingPlatform : MonoBehaviour {
     GameObject Lever;
 
     [SerializeField]
+    [Header("The speed at which the platform moves.")]
+    float MoveSpeed;
+
+    [SerializeField]
     [Header("The time in sec the elevator will pause.")]
     float PauseTime;
 
@@ -23,6 +27,10 @@ public class MovingPlatform : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+        if(MoveSpeed == 0)
+        {
+            MoveSpeed = 1;
+        }
 	}
 	
 	// Update is called once per frame
@@ -34,7 +42,7 @@ public class MovingPlatform : MonoBehaviour {
             {
                 if (Up)
                 {
-                    this.transform.Find("Platform").position = Vector3.MoveTowards(this.transform.Find("Platform").position, this.transform.Find("TopPoint").position, Time.deltaTime);
+                    this.transform.Find("Platform").position = Vector3.MoveTowards(this.transform.Find("Platform").position, this.transform.Find("TopPoint").position, Time.deltaTime * MoveSpeed);
                     if (Vector2.Distance(this.transform.Find("TopPoint").position, this.transform.Find("Platform").position) < 0.1)
                     {
                         Pause = true;
@@ -43,7 +51,7 @@ public class MovingPlatform : MonoBehaviour {
                 }
                 else
                 {
-                    this.transform.Find("Platform").position = Vector3.MoveTowards(this.transform.Find("Platform").position, this.transform.Find("BottomPoint").position, Time.deltaTime);
+                    this.transform.Find("Platform").position = Vector3.MoveTowards(this.transform.Find("Platform").position, this.transform.Find("BottomPoint").position, Time.deltaTime * MoveSpeed);
                     if (Vector2.Distance(this.transform.Find("BottomPoint").position, this.transform.Find("Platform").position) < 0.1)
                     {
                         Pause = true;
