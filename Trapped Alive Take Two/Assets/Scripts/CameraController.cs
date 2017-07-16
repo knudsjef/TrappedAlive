@@ -6,19 +6,28 @@ public class CameraController : MonoBehaviour {
 
     [SerializeField]
     GameObject Player;
+    [SerializeField]
+    float Damp;
+    float x;
 
 	// Use this for initialization
 	void Start ()
     {
-
+        x = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Player.transform.position.x < Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 4, 0, 0)).x)
+        if (Player.GetComponent<Rigidbody2D>().velocity.x > 0)
         {
-            print("Move Cam");
+            x += Time.deltaTime * Damp;
+            this.transform.position = new Vector3(x, this.transform.position.y, -10);
+        }
+        else if(Player.GetComponent<Rigidbody2D>().velocity.x < 0)
+        {
+            x -= Time.deltaTime * Damp;
+            this.transform.position = new Vector3(x, this.transform.position.y, -10);
         }
     }
 }
