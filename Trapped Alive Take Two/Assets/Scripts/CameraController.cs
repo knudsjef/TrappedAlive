@@ -7,6 +7,9 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     GameObject Player;
 
+    [SerializeField]
+    float CamSpeed;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -16,9 +19,17 @@ public class CameraController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if(Player.transform.position.x < Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 4, 0, 0)).x)
+        if(Player.GetComponent<Rigidbody2D>().velocity.x > 0)
         {
-            print("Move Cam");
+            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(Player.transform.position.x + 10, this.transform.position.y, this.transform.position.z), CamSpeed * Time.deltaTime);
+        }
+        else if(Player.GetComponent<Rigidbody2D>().velocity.x < 0)
+        {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(Player.transform.position.x - 10, this.transform.position.y, this.transform.position.z), CamSpeed * Time.deltaTime);
+        }
+        else
+        {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(Player.transform.position.x, this.transform.position.y, this.transform.position.z),15 * Time.deltaTime);
         }
     }
 }
