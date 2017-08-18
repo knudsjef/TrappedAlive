@@ -187,6 +187,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+
+    }
+
     /******************************************************************************
      *    The MOVE function handles the movement of the player based on input     *
      ******************************************************************************/
