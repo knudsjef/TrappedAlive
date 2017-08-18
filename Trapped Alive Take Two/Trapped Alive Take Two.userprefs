@@ -1,10 +1,11 @@
-﻿<Properties StartupItem="Trapped Alive Take Two.CSharp.Plugins.csproj">
+﻿<Properties StartupItem="Trapped Alive Take Two.Plugins.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CameraController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerMovement.cs">
     <Files>
       <File FileName="Assets\Scripts\MovingPlatform.cs" Line="1" Column="1" />
       <File FileName="Assets\PixelPerfectCamera\README.txt" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CameraController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CameraController.cs" Line="24" Column="32" />
+      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="15" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
