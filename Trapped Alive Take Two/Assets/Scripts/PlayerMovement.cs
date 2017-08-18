@@ -193,7 +193,7 @@ public class PlayerMovement : MonoBehaviour
     void Move(Vector3 Direction)
     {
         //Move the player based on the direction provided by the Update function
-        PlayerRigid.velocity = new Vector2(Direction.x * MoveSpeed, PlayerRigid.velocity.y);
+        PlayerRigid.velocity = new Vector2(Direction.x * MoveSpeed * Time.deltaTime, PlayerRigid.velocity.y);
     }
 
     /******************************************************************************
