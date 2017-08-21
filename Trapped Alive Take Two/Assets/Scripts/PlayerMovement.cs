@@ -379,7 +379,7 @@ public class PlayerMovement : MonoBehaviour
         JumpDistance = 10;
         JumpHeight = 6;
         //Change the move speed for the square
-        MoveSpeed = 15;
+        MoveSpeed = 300;
         //The player is now a square...
         IsSquare = true;
         //...not a rectangle

@@ -2,47 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
-{
+public class CameraController : MonoBehaviour {
 
     [SerializeField]
-    //The player game object
-    GameObject Player;
+    GameObject TopBound;
 
     [SerializeField]
-    //The speed the camera will move
-    float CamSpeed;
+    GameObject BottomBound;
 
     [SerializeField]
-    //The distance from the player the camera can get
-    int CamDistance = 5;
+    GameObject RightBound;
 
-    // Use this for initialization
-    void Start()
-    {
+    [SerializeField]
+    GameObject LeftBound;
 
-    }
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
 
-    // Update is called once per frame
-    void Update()
-    {
-        //If the player is moving right
-        if (Player.GetComponent<Rigidbody2D>().velocity.x > 0)
-        {
-            //Move the camera right by CAM DISTANCE
-            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(Player.transform.position.x + CamDistance, this.transform.position.y, this.transform.position.z), CamSpeed * Time.deltaTime);
-        }
-        //If the player is moving left
-        else if (Player.GetComponent<Rigidbody2D>().velocity.x < 0)
-        {
-            //Move the camera left by CAM DISTANCE
-            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(Player.transform.position.x - CamDistance, this.transform.position.y, this.transform.position.z), CamSpeed * Time.deltaTime);
-        }
-        //If the player isn't moving
-        else
-        {
-            //Center the camera
-            this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(Player.transform.position.x, this.transform.position.y, this.transform.position.z), 15 * Time.deltaTime);
-        }
-    }
+        this.transform.position = new Vector3(Mathf.Clamp(GameObject.Find("Player").transform.position.x, LeftBound.transform.position.x, RightBound.transform.position.x), Mathf.Clamp(GameObject.Find("Player").transform.position.y, BottomBound.transform.position.y, TopBound.transform.position.y), this.transform.position.z);
+        Mathf.Clamp(this.transform.position.x, LeftBound.transform.position.x, RightBound.transform.position.x);
+        Mathf.Clamp(this.transform.position.y, BottomBound.transform.position.y, TopBound.transform.position.y);
+
+	}
 }
