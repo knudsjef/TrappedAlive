@@ -10,6 +10,8 @@ public class Lever : MonoBehaviour
     //The position it starts at
     char StartPos;
 
+    bool Flipped = false;
+
     // When the game starts
     void Start()
     {
@@ -32,7 +34,7 @@ public class Lever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //if(Flipped && )
     }
 
     /******************************************************************************
@@ -44,6 +46,7 @@ public class Lever : MonoBehaviour
         //Flip the lever
         this.transform.localScale = new Vector3(-this.transform.localScale.x, this.transform.localScale.y, this.transform.localScale.z);
 
+        Flipped = true;
         //If the lever is on
         if (On)
         {
@@ -81,6 +84,14 @@ public class Lever : MonoBehaviour
             if ((StartPos == 'L' && !Col.transform.GetComponent<PlayerMovement>().Left) || (StartPos == 'R' && Col.transform.GetComponent<PlayerMovement>().Left))
                 //Turn the lever on or off
                 SwitchIO();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D Col)
+    {
+        if(Col.transform.name == "Player")
+        {
+            Flipped = false;
         }
     }
 }
