@@ -34,7 +34,14 @@ public class Lever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(Flipped && )
+        if(Flipped && StartPos == 'L' && Input.GetKeyDown(KeyCode.D))
+        {
+            SwitchIO();
+        }
+        else if(Flipped && StartPos == 'R' && Input.GetKeyDown(KeyCode.A))
+        {
+            SwitchIO();
+        }
     }
 
     /******************************************************************************

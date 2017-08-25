@@ -109,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //Check if theres any right input
         if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
         {
