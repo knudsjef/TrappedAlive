@@ -22,21 +22,398 @@ public class MenuControl : MonoBehaviour {
     GameObject ControlMenu;
 
     [SerializeField]
+    Button MoveRightBtn;
+    [SerializeField]
+    Text MoveRightTxt;
+
+    [SerializeField]
+    Button MoveLeftBtn;
+    [SerializeField]
+    Text MoveLeftTxt;
+
+    [SerializeField]
+    Button JumpBtn;
+    [SerializeField]
+    Text JumpTxt;
+
+    [SerializeField]
+    Button FallBtn;
+    [SerializeField]
+    Text FallTxt;
+
+    [SerializeField]
+    Button BackFromControls;
+
+    [SerializeField]
     Dropdown ResDrop;
 
     bool Full;
+
+    bool Right;
+    bool Left;
+    bool Jump;
+    bool Fall;
 
     void Start()
     {
         BackToMenu();
 
-        if(Screen.fullScreen == true)
+        if(PlayerPrefs.GetString("Move Right Key") == "")
+        {
+            PlayerPrefs.SetString("Move Right Key", "D");
+        }
+
+        if (PlayerPrefs.GetString("Move Left Key") == "")
+        {
+            PlayerPrefs.SetString("Move Left Key", "A");
+        }
+
+        if (PlayerPrefs.GetString("Jump Key") == "")
+        {
+            PlayerPrefs.SetString("Jump Key", "Space");
+        }
+
+        if (PlayerPrefs.GetString("Fall Key") == "")
+        {
+            PlayerPrefs.SetString("Fall Key", "LeftShift");
+        }
+
+        if (Screen.fullScreen == true)
         {
             PlayerPrefs.SetInt("Fullscreen", 1);
         }
         else
         {
             PlayerPrefs.SetInt("Fullscreen", 0);
+        }
+    }
+
+    void Update()
+    {
+        MoveRightTxt.text = PlayerPrefs.GetString("Move Right Key");
+        MoveLeftTxt.text = PlayerPrefs.GetString("Move Left Key");
+        JumpTxt.text = PlayerPrefs.GetString("Jump Key");
+        FallTxt.text = PlayerPrefs.GetString("Fall Key");
+        if (Right)
+        {
+            MoveLeftBtn.interactable = false;
+            JumpBtn.interactable = false;
+            FallBtn.interactable = false;
+            BackFromControls.interactable = false;
+            foreach(KeyCode Key in System.Enum.GetValues(typeof(KeyCode)))
+            {
+                if (Input.GetKeyDown(Key))
+                {
+                    print(Key);
+                    PlayerPrefs.SetString("Move Right Key", Key.ToString().ToLower());
+
+                    switch (Key)
+                    {
+                        case KeyCode.RightArrow:
+                            PlayerPrefs.SetString("Move Right Key", "right");
+                            break;
+
+                        case KeyCode.LeftArrow:
+                            PlayerPrefs.SetString("Move Right Key", "left");
+                            break;
+
+                        case KeyCode.UpArrow:
+                            PlayerPrefs.SetString("Move Right Key", "up");
+                            break;
+
+                        case KeyCode.DownArrow:
+                            PlayerPrefs.SetString("Move Right Key", "down");
+                            break;
+
+                        case KeyCode.PageUp:
+                            PlayerPrefs.SetString("Move Right Key", "page up");
+                            break;
+
+                        case KeyCode.PageDown:
+                            PlayerPrefs.SetString("Move Right Key", "page down");
+                            break;
+
+                        case KeyCode.CapsLock:
+                            PlayerPrefs.SetString("Move Right Key", "caps lock");
+                            break;
+
+                        case KeyCode.ScrollLock:
+                            PlayerPrefs.SetString("Move Right Key", "scroll lock");
+                            break;
+
+                        case KeyCode.RightShift:
+                            PlayerPrefs.SetString("Move Right Key", "right shift");
+                            break;
+
+                        case KeyCode.LeftShift:
+                            PlayerPrefs.SetString("Move Right Key", "left shift");
+                            break;
+
+                        case KeyCode.RightControl:
+                            PlayerPrefs.SetString("Move Right Key", "right ctrl");
+                            break;
+
+                        case KeyCode.LeftControl:
+                            PlayerPrefs.SetString("Move Right Key", "left ctrl");
+                            break;
+
+                        case KeyCode.RightAlt:
+                            PlayerPrefs.SetString("Move Right Key", "right alt");
+                            break;
+
+                        case KeyCode.LeftAlt:
+                            PlayerPrefs.SetString("Move Right Key", "left alt");
+                            break;
+
+                        default: PlayerPrefs.SetString("Move Right Key", PlayerPrefs.GetString("Move Right Key"));
+                            break;
+                    }
+                    Right = false;
+                }
+            }
+        }
+        else if (Left)
+        {
+            MoveRightBtn.interactable = false;
+            JumpBtn.interactable = false;
+            FallBtn.interactable = false;
+            BackFromControls.interactable = false;
+            foreach (KeyCode Key in System.Enum.GetValues(typeof(KeyCode)))
+            {
+                if (Input.GetKeyDown(Key))
+                {
+                    PlayerPrefs.SetString("Move Left Key", Key.ToString().ToLower());
+
+                    switch (Key)
+                    {
+                        case KeyCode.RightArrow:
+                            PlayerPrefs.SetString("Move Left Key", "right");
+                            break;
+
+                        case KeyCode.LeftArrow:
+                            PlayerPrefs.SetString("Move Left Key", "left");
+                            break;
+
+                        case KeyCode.UpArrow:
+                            PlayerPrefs.SetString("Move Left Key", "up");
+                            break;
+
+                        case KeyCode.DownArrow:
+                            PlayerPrefs.SetString("Move Left Key", "down");
+                            break;
+
+                        case KeyCode.PageUp:
+                            PlayerPrefs.SetString("Move Left Key", "page up");
+                            break;
+
+                        case KeyCode.PageDown:
+                            PlayerPrefs.SetString("Move Left Key", "page down");
+                            break;
+
+                        case KeyCode.CapsLock:
+                            PlayerPrefs.SetString("Move Left Key", "caps lock");
+                            break;
+
+                        case KeyCode.ScrollLock:
+                            PlayerPrefs.SetString("Move Left Key", "scroll lock");
+                            break;
+
+                        case KeyCode.RightShift:
+                            PlayerPrefs.SetString("Move Left Key", "right shift");
+                            break;
+
+                        case KeyCode.LeftShift:
+                            PlayerPrefs.SetString("Move Left Key", "left shift");
+                            break;
+
+                        case KeyCode.RightControl:
+                            PlayerPrefs.SetString("Move Left Key", "right ctrl");
+                            break;
+
+                        case KeyCode.LeftControl:
+                            PlayerPrefs.SetString("Move Left Key", "left ctrl");
+                            break;
+
+                        case KeyCode.RightAlt:
+                            PlayerPrefs.SetString("Move Left Key", "right alt");
+                            break;
+
+                        case KeyCode.LeftAlt:
+                            PlayerPrefs.SetString("Move Left Key", "left alt");
+                            break;
+
+                        default:
+                            PlayerPrefs.SetString("Move Left Key", PlayerPrefs.GetString("Move Left Key"));
+                            break;
+                    }
+                            Left = false;
+                }
+            }
+        }
+        else if (Jump)
+        {
+            MoveRightBtn.interactable = false;
+            MoveLeftBtn.interactable = false;
+            FallBtn.interactable = false;
+            BackFromControls.interactable = false;
+            foreach (KeyCode Key in System.Enum.GetValues(typeof(KeyCode)))
+            {
+                if (Input.GetKeyDown(Key))
+                {
+                    PlayerPrefs.SetString("Jump Key", Key.ToString().ToLower());
+
+                    switch (Key)
+                    {
+                        case KeyCode.RightArrow:
+                            PlayerPrefs.SetString("Jump Key", "right");
+                            break;
+
+                        case KeyCode.LeftArrow:
+                            PlayerPrefs.SetString("Jump Key", "left");
+                            break;
+
+                        case KeyCode.UpArrow:
+                            PlayerPrefs.SetString("Jump Key", "up");
+                            break;
+
+                        case KeyCode.DownArrow:
+                            PlayerPrefs.SetString("Jump Key", "down");
+                            break;
+
+                        case KeyCode.PageUp:
+                            PlayerPrefs.SetString("Jump Key", "page up");
+                            break;
+
+                        case KeyCode.PageDown:
+                            PlayerPrefs.SetString("Jump Key", "page down");
+                            break;
+
+                        case KeyCode.CapsLock:
+                            PlayerPrefs.SetString("Jump Key", "caps lock");
+                            break;
+
+                        case KeyCode.ScrollLock:
+                            PlayerPrefs.SetString("Jump Key", "scroll lock");
+                            break;
+
+                        case KeyCode.RightShift:
+                            PlayerPrefs.SetString("Jump Key", "right shift");
+                            break;
+
+                        case KeyCode.LeftShift:
+                            PlayerPrefs.SetString("Jump Key", "left shift");
+                            break;
+
+                        case KeyCode.RightControl:
+                            PlayerPrefs.SetString("Jump Key", "right ctrl");
+                            break;
+
+                        case KeyCode.LeftControl:
+                            PlayerPrefs.SetString("Jump Key", "left ctrl");
+                            break;
+
+                        case KeyCode.RightAlt:
+                            PlayerPrefs.SetString("Jump Key", "right alt");
+                            break;
+
+                        case KeyCode.LeftAlt:
+                            PlayerPrefs.SetString("Jump Key", "left alt");
+                            break;
+
+                        default:
+                            PlayerPrefs.SetString("Jump Key", PlayerPrefs.GetString("Jump Key"));
+                            break;
+                    }
+
+                            Jump = false;
+                }
+            }
+        }
+        else if (Fall)
+        {
+            MoveRightBtn.interactable = false;
+            MoveLeftBtn.interactable = false;
+            JumpBtn.interactable = false;
+            BackFromControls.interactable = false;
+            foreach (KeyCode Key in System.Enum.GetValues(typeof(KeyCode)))
+            {
+                if (Input.GetKeyDown(Key))
+                {
+                    PlayerPrefs.SetString("Fall Key", Key.ToString().ToLower());
+
+                    switch (Key)
+                    {
+                        case KeyCode.RightArrow:
+                            PlayerPrefs.SetString("Fall Key", "right");
+                            break;
+
+                        case KeyCode.LeftArrow:
+                            PlayerPrefs.SetString("Fall Key", "left");
+                            break;
+
+                        case KeyCode.UpArrow:
+                            PlayerPrefs.SetString("Fall Key", "up");
+                            break;
+
+                        case KeyCode.DownArrow:
+                            PlayerPrefs.SetString("Fall Key", "down");
+                            break;
+
+                        case KeyCode.PageUp:
+                            PlayerPrefs.SetString("Fall Key", "page up");
+                            break;
+
+                        case KeyCode.PageDown:
+                            PlayerPrefs.SetString("Fall Key", "page down");
+                            break;
+
+                        case KeyCode.CapsLock:
+                            PlayerPrefs.SetString("Fall Key", "caps lock");
+                            break;
+
+                        case KeyCode.ScrollLock:
+                            PlayerPrefs.SetString("Fall Key", "scroll lock");
+                            break;
+
+                        case KeyCode.RightShift:
+                            PlayerPrefs.SetString("Fall Key", "right shift");
+                            break;
+
+                        case KeyCode.LeftShift:
+                            PlayerPrefs.SetString("Fall Key", "left shift");
+                            break;
+
+                        case KeyCode.RightControl:
+                            PlayerPrefs.SetString("Fall Key", "right ctrl");
+                            break;
+
+                        case KeyCode.LeftControl:
+                            PlayerPrefs.SetString("Fall Key", "left ctrl");
+                            break;
+
+                        case KeyCode.RightAlt:
+                            PlayerPrefs.SetString("Fall Key", "right alt");
+                            break;
+
+                        case KeyCode.LeftAlt:
+                            PlayerPrefs.SetString("Fall Key", "left alt");
+                            break;
+
+                        default:
+                            PlayerPrefs.SetString("Fall Key", PlayerPrefs.GetString("Fall Key"));
+                            break;
+                    }
+                            Fall = false;
+                }
+            }
+        }
+        else
+        {
+            MoveRightBtn.interactable = true;
+            MoveLeftBtn.interactable = true;
+            JumpBtn.interactable = true;
+            FallBtn.interactable = true;
+            BackFromControls.interactable = true;
         }
     }
     
@@ -246,6 +623,26 @@ public class MenuControl : MonoBehaviour {
             PlayerPrefs.SetInt("Fullscreen", 0);
         }
         ChangeResolution();
+    }
+
+    public void MoveRightChange()
+    {
+        Right = true;
+    }
+
+    public void MoveLeftChange()
+    {
+        Left = true;
+    }
+
+    public void JumpChange()
+    {
+        Jump = true;
+    }
+
+    public void FallChange()
+    {
+        Fall = true;
     }
 
     public void Quit()

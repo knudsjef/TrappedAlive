@@ -90,6 +90,11 @@ public class PlayerMovement : MonoBehaviour
     //The size for the rectangle version of the box collider
     Vector2 RectangleSize;
 
+    public KeyCode RightKey;
+    public KeyCode LeftKey;
+    public KeyCode JumpKey;
+    public KeyCode FallKey;
+
     // When the game starts
     void Start()
     {
@@ -102,6 +107,8 @@ public class PlayerMovement : MonoBehaviour
         TriCollider = Player.GetComponent<PolygonCollider2D>();
         CirCollider = Player.GetComponent<CircleCollider2D>();
 
+        
+
         //Change the player shape to the starting shape
         ChangeShape(StartShape);
     }
@@ -109,9 +116,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         //Check if theres any right input
-        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
+        if ((Input.GetKey(PlayerPrefs.GetString("Move Right Key"))))
         {
             //Move right
             if (Fallen)
@@ -125,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
             Left = false;
         }
         //Check if theres any left input
-        else if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)))
+        else if ((Input.GetKey(PlayerPrefs.GetString("Move Left Key").ToLower())))
         {
             //Move left
             if (Fallen)
@@ -140,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Check if SPACE is pressed
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(PlayerPrefs.GetString("Jump Key")))
         {
             //Make sure the player is not a triangle
             if (TriCollider.enabled == false)
@@ -161,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Check if LEFT SHIFT is pressed
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(PlayerPrefs.GetString("Fall Key")))
         {
             //If the player is a square
             if (IsSquare)
@@ -181,16 +187,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         //Check if the player stops pressing the horizontal move keys
-        if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+        if (Input.GetKeyUp(PlayerPrefs.GetString("Move Right Key")) || Input.GetKeyUp(PlayerPrefs.GetString("Move Left Key")))
         {
             //Stop the player movement
             PlayerRigid.velocity = new Vector2(0, PlayerRigid.velocity.y);
         }
-    }
-
-    void FixedUpdate()
-    {
-
     }
 
     /******************************************************************************
