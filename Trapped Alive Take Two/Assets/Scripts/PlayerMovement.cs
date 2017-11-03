@@ -107,6 +107,15 @@ public class PlayerMovement : MonoBehaviour
         TriCollider = Player.GetComponent<PolygonCollider2D>();
         CirCollider = Player.GetComponent<CircleCollider2D>();
 
+        if(PlayerPrefs.GetString("Move Right Key") == "")
+        {
+            PlayerPrefs.SetString("Move Right Key", "d");
+        }
+
+        if(PlayerPrefs.GetString("Move Left Key") == "")
+        {
+            PlayerPrefs.SetString("Move Left Key", "a");
+        }
         
 
         //Change the player shape to the starting shape
