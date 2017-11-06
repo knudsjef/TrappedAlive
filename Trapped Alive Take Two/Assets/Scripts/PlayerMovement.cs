@@ -116,6 +116,16 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerPrefs.SetString("Move Left Key", "a");
         }
+
+        if(PlayerPrefs.GetString("Jump Key") == "")
+        {
+            PlayerPrefs.SetString("Jump Key", "space");
+        }
+
+        if(PlayerPrefs.GetString("Fall Key") == "")
+        {
+            PlayerPrefs.SetString("Fall Key", "left shift");
+        }
         
 
         //Change the player shape to the starting shape

@@ -15,7 +15,6 @@ public class Vents : Tile
 
     public override void RefreshTile(Vector3Int position, ITilemap tilemap)
     {
-
         for (int y = -1; y <= 1; y++)
         {
             for (int x = -1; x <= 1; x++)
@@ -34,7 +33,6 @@ public class Vents : Tile
     {
 
         string composition = string.Empty;
-
         for (int x = -1; x <= 1; x++)
         {
             for (int y = -1; y <= 1; y++)
@@ -104,8 +102,7 @@ public class Vents : Tile
         else if(composition[6] == 'V')
         {
             tileData.sprite = HorizontalRandom();
-        }   
-
+        }
     }
 
     private bool IsVent(ITilemap tilemap, Vector3Int position)

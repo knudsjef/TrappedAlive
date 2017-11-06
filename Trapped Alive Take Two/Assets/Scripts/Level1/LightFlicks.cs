@@ -13,6 +13,8 @@ public class LightFlicks : MonoBehaviour {
     [SerializeField]
     GameObject[] Lights = new GameObject[7];
 
+    [SerializeField]
+    Sprite OnLight;
     public bool Go;
 
     float TimeAmount;
@@ -23,11 +25,12 @@ public class LightFlicks : MonoBehaviour {
 
         //Start with the light flicks off until player is in the room
         Go = false;
+        
 
         //Set all of the lights to off until player is in the room
         foreach(GameObject Light in Lights)
         {
-            Light.GetComponent<Light>().enabled = false;
+            //Light.GetComponent<Light>().enabled = false; 
         }
 	}
 	
@@ -40,7 +43,8 @@ public class LightFlicks : MonoBehaviour {
             //Start counting for lights
             TimeAmount += Time.deltaTime;
             //Turn on lights corresponding with time
-            Lights[Mathf.Clamp(Mathf.RoundToInt(TimeAmount), 0, 6)].GetComponent<Light>().enabled = true;
+            //Lights[Mathf.Clamp(Mathf.RoundToInt(TimeAmount), 0, 6)].GetComponent<Light>().enabled = true;
+            Lights[Mathf.Clamp(Mathf.RoundToInt(TimeAmount), 0, 6)].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = OnLight;
         }
 
 	}
