@@ -135,6 +135,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         //Check if theres any right input
         if ((Input.GetKey(PlayerPrefs.GetString("Move Right Key"))))
         {

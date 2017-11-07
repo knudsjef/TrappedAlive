@@ -16,17 +16,27 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     GameObject LeftBound;
 
+    [SerializeField]
+    GameObject Player;
+
 	// Use this for initialization
 	void Start () {
-	
+        Application.targetFrameRate = 50;
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
+    // Update is called once per frame
+    /*void Update () {
+
+        
         this.transform.position = new Vector3(Mathf.Clamp(GameObject.Find("Player").transform.position.x, LeftBound.transform.position.x, RightBound.transform.position.x), Mathf.Clamp(GameObject.Find("Player").transform.position.y, BottomBound.transform.position.y, TopBound.transform.position.y), this.transform.position.z);
         Mathf.Clamp(this.transform.position.x, LeftBound.transform.position.x, RightBound.transform.position.x);
         Mathf.Clamp(this.transform.position.y, BottomBound.transform.position.y, TopBound.transform.position.y);
+        
+        
+	}*/
+    private void LateUpdate()
+    {
 
-	}
+    }
+
 }
