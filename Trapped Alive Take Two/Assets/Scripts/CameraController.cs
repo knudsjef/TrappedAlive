@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Application.targetFrameRate = 50;
+
 	}
 
     // Update is called once per frame
