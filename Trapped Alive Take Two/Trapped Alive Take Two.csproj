@@ -247,6 +247,7 @@
     <Compile Include="Assets\Scripts\Lever.cs" />
     <Compile Include="Assets\Scripts\MenuControl.cs" />
     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
+    <Compile Include="Assets\Scripts\ParralaxScrolling.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Teleportable.cs" />
   </ItemGroup>

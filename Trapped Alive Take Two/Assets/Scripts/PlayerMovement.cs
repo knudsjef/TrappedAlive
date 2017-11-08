@@ -405,7 +405,7 @@ public class PlayerMovement : MonoBehaviour
         //Set the jump height parameter for the rectangle
         JumpHeight = RectJumpHeight;
         //Change the move speed for the rectangle
-        MoveSpeed = 3;
+        MoveSpeed = 150;
         //The player is now a rectangle...
         IsRect = true;
         //...not a square
