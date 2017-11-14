@@ -17,6 +17,8 @@ public class ParralaxScrolling : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        //Debug.Log(Player.velocity.x);
+
         this.transform.position = new Vector2(this.transform.position.x + (PARALLAX_SPEED * Player.velocity.x), this.transform.position.y + (PARALLAX_SPEED * Player.velocity.y));
 	}
 }

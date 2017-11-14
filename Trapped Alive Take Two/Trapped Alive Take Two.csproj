@@ -243,6 +243,8 @@
     <Compile Include="Assets\Scripts\Brush Scripts\Vents.cs" />
     <Compile Include="Assets\Scripts\Brush Scripts\Window.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\DoorOpenClose.cs" />
+    <Compile Include="Assets\Scripts\Level1\LastLightFlicker.cs" />
     <Compile Include="Assets\Scripts\Level1\LightFlicks.cs" />
     <Compile Include="Assets\Scripts\Lever.cs" />
     <Compile Include="Assets\Scripts\MenuControl.cs" />
